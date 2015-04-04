@@ -31,11 +31,8 @@
 
 - (void)testAccessTokenResponseJSONParsing
 {
-    NSError *error = nil;
-    NSDictionary *jsonDic = [SampleAccessTokenResponse GetSampleJSONResponse];
-    AccessTokenResponse *response = [[AccessTokenResponse alloc] initWithDictionary:jsonDic error:&error];
+    AccessTokenResponse *response = [SampleAccessTokenResponse GetSampleJSONResponse];
 
-    XCTAssertNil(error);
     XCTAssertNotNil(response);
 
     XCTAssertNotNil(response.user);

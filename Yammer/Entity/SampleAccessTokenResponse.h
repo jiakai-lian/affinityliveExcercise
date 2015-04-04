@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AccessTokenResponse.h"
 
 @interface SampleAccessTokenResponse : NSObject
-+ (NSDictionary *) GetSampleJSONResponse;
++ (AccessTokenResponse *) GetSampleJSONResponse;
 @end

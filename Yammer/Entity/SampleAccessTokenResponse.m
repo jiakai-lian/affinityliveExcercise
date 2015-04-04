@@ -10,7 +10,7 @@
 
 @implementation SampleAccessTokenResponse
 
-+ (NSDictionary *) GetSampleJSONResponse
++ (AccessTokenResponse *) GetSampleJSONResponse
 {
     NSError *error;
     
@@ -23,9 +23,13 @@
     
     NSDictionary* jsonObject = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:&error];
     
-    NSLog(@"%@", jsonObject);
+//    NSLog(@"%@", jsonObject);
     
-    return jsonObject;
+    AccessTokenResponse * response =[[AccessTokenResponse alloc] initWithDictionary:jsonObject error:&error];
+
+    
+    
+    return response;
 }
 
 @end
