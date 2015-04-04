@@ -34,8 +34,11 @@
     
     XCTAssertNil(error);
     XCTAssertNotNil(response);
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    
+    XCTAssertNotNil(response.user);
+    XCTAssertNotNil(response.user.full_name);
+    XCTAssertNotNil(response.access_token);
+    XCTAssertNotNil(response.access_token.token);
 }
 
 @end
