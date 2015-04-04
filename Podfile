@@ -3,7 +3,7 @@ platform :ios, '7.0'
 
 #target ‘AffinityLiveExcercise’ do
 pod 'AFNetworking', '~> 2.0'
-#pod 'JSONModel'
+pod 'JSONModel'
 #pod 'iVersion'
 #pod 'MBProgressHUD'
 #pod 'TPKeyboardAvoiding'

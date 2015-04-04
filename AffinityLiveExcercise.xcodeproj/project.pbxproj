@@ -17,6 +17,12 @@
 		3E1C1D1C1ACF89720002C545 /* NetworkDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C1D1B1ACF89720002C545 /* NetworkDataService.m */; };
 		3E1C1D201ACF93410002C545 /* NetworkDataServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C1D1F1ACF93410002C545 /* NetworkDataServiceTest.m */; };
 		3E1C1D241ACF987E0002C545 /* NSDictionary+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C1D231ACF987E0002C545 /* NSDictionary+URLEncoding.m */; };
+		3E299F601ACFFF94006D76F4 /* SampleAccessTokenResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E299F5F1ACFFF94006D76F4 /* SampleAccessTokenResponse.json */; };
+		3E299F631ACFFFD0006D76F4 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299F621ACFFFD0006D76F4 /* AccessToken.m */; };
+		3E299F661AD00055006D76F4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299F651AD00055006D76F4 /* User.m */; };
+		3E299F691AD000D7006D76F4 /* AccessTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299F681AD000D7006D76F4 /* AccessTokenResponse.m */; };
+		3E299F6C1AD001E4006D76F4 /* YammerAccessTokenResponseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299F6B1AD001E4006D76F4 /* YammerAccessTokenResponseTest.m */; };
+		3E299F6F1AD002C2006D76F4 /* SampleAccessTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299F6E1AD002C2006D76F4 /* SampleAccessTokenResponse.m */; };
 		48932733C5597BFDC1A47AB1 /* libPods-AffinityLiveExcerciseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */; };
 		F4E6E58773D2F361E9B299BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D4666074B0A3F3AE1398AC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -52,6 +58,16 @@
 		3E1C1D1F1ACF93410002C545 /* NetworkDataServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkDataServiceTest.m; sourceTree = "<group>"; };
 		3E1C1D221ACF987E0002C545 /* NSDictionary+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+URLEncoding.h"; sourceTree = "<group>"; };
 		3E1C1D231ACF987E0002C545 /* NSDictionary+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+URLEncoding.m"; sourceTree = "<group>"; };
+		3E299F5F1ACFFF94006D76F4 /* SampleAccessTokenResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleAccessTokenResponse.json; sourceTree = "<group>"; };
+		3E299F611ACFFFD0006D76F4 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
+		3E299F621ACFFFD0006D76F4 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
+		3E299F641AD00055006D76F4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3E299F651AD00055006D76F4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3E299F671AD000D7006D76F4 /* AccessTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessTokenResponse.h; sourceTree = "<group>"; };
+		3E299F681AD000D7006D76F4 /* AccessTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessTokenResponse.m; sourceTree = "<group>"; };
+		3E299F6B1AD001E4006D76F4 /* YammerAccessTokenResponseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YammerAccessTokenResponseTest.m; sourceTree = "<group>"; };
+		3E299F6D1AD002C2006D76F4 /* SampleAccessTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleAccessTokenResponse.h; sourceTree = "<group>"; };
+		3E299F6E1AD002C2006D76F4 /* SampleAccessTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleAccessTokenResponse.m; sourceTree = "<group>"; };
 		8032B0E967A2E16528C70A74 /* Pods-AffinityLiveExcerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffinityLiveExcerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffinityLiveExcerciseTests/Pods-AffinityLiveExcerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AffinityLiveExcerciseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D4666074B0A3F3AE1398AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +99,7 @@
 		3E1C1CDD1ACF79FF0002C545 = {
 			isa = PBXGroup;
 			children = (
+				3E299F5D1ACFFE66006D76F4 /* Yammer */,
 				3E1C1D1D1ACF8DD00002C545 /* Common */,
 				3E1C1D181ACF88B00002C545 /* Service */,
 				3E1C1CE81ACF79FF0002C545 /* AffinityLiveExcercise */,
@@ -129,6 +146,7 @@
 		3E1C1D021ACF79FF0002C545 /* AffinityLiveExcerciseTests */ = {
 			isa = PBXGroup;
 			children = (
+				3E299F6A1AD00180006D76F4 /* Yammer */,
 				3E1C1D171ACF88A80002C545 /* Service */,
 				3E1C1D051ACF79FF0002C545 /* AffinityLiveExcerciseTests.m */,
 				3E1C1D031ACF79FF0002C545 /* Supporting Files */,
@@ -178,6 +196,38 @@
 				3E1C1D231ACF987E0002C545 /* NSDictionary+URLEncoding.m */,
 			);
 			path = "NSDictionary+URLEncoding";
+			sourceTree = "<group>";
+		};
+		3E299F5D1ACFFE66006D76F4 /* Yammer */ = {
+			isa = PBXGroup;
+			children = (
+				3E299F5E1ACFFE66006D76F4 /* Entity */,
+			);
+			path = Yammer;
+			sourceTree = "<group>";
+		};
+		3E299F5E1ACFFE66006D76F4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3E299F5F1ACFFF94006D76F4 /* SampleAccessTokenResponse.json */,
+				3E299F611ACFFFD0006D76F4 /* AccessToken.h */,
+				3E299F621ACFFFD0006D76F4 /* AccessToken.m */,
+				3E299F641AD00055006D76F4 /* User.h */,
+				3E299F651AD00055006D76F4 /* User.m */,
+				3E299F671AD000D7006D76F4 /* AccessTokenResponse.h */,
+				3E299F681AD000D7006D76F4 /* AccessTokenResponse.m */,
+				3E299F6D1AD002C2006D76F4 /* SampleAccessTokenResponse.h */,
+				3E299F6E1AD002C2006D76F4 /* SampleAccessTokenResponse.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		3E299F6A1AD00180006D76F4 /* Yammer */ = {
+			isa = PBXGroup;
+			children = (
+				3E299F6B1AD001E4006D76F4 /* YammerAccessTokenResponseTest.m */,
+			);
+			path = Yammer;
 			sourceTree = "<group>";
 		};
 		51BF9C1FD382ED70C5B89DAA /* Pods */ = {
@@ -287,6 +337,7 @@
 				3E1C1CF51ACF79FF0002C545 /* Main.storyboard in Resources */,
 				3E1C1CFA1ACF79FF0002C545 /* LaunchScreen.xib in Resources */,
 				3E1C1CF71ACF79FF0002C545 /* Images.xcassets in Resources */,
+				3E299F601ACFFF94006D76F4 /* SampleAccessTokenResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,9 +418,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E299F661AD00055006D76F4 /* User.m in Sources */,
 				3E1C1CF21ACF79FF0002C545 /* ViewController.m in Sources */,
 				3E1C1CEF1ACF79FF0002C545 /* AppDelegate.m in Sources */,
 				3E1C1CEC1ACF79FF0002C545 /* main.m in Sources */,
+				3E299F691AD000D7006D76F4 /* AccessTokenResponse.m in Sources */,
+				3E299F631ACFFFD0006D76F4 /* AccessToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,8 +433,10 @@
 			files = (
 				3E1C1D1C1ACF89720002C545 /* NetworkDataService.m in Sources */,
 				3E1C1D241ACF987E0002C545 /* NSDictionary+URLEncoding.m in Sources */,
+				3E299F6F1AD002C2006D76F4 /* SampleAccessTokenResponse.m in Sources */,
 				3E1C1D201ACF93410002C545 /* NetworkDataServiceTest.m in Sources */,
 				3E1C1D061ACF79FF0002C545 /* AffinityLiveExcerciseTests.m in Sources */,
+				3E299F6C1AD001E4006D76F4 /* YammerAccessTokenResponseTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

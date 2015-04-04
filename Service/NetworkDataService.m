@@ -113,7 +113,7 @@ static NSString *const GET = @"get";
     
     [request addValue:@"application/json" forHTTPHeaderField:@"content-type"];
     
-    request = [self appendAuthentication:request];
+//    request = [self appendAuthentication:request];
     
     
     //[request setHTTPBody:data];
@@ -137,6 +137,8 @@ static NSString *const GET = @"get";
     NSString *authStr = [NSString stringWithFormat:@"%@:%@", CLIENT_ID , CLIENT_SECRET];
     NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
+    
+    LOG(@"authValue = %@", authValue);
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     return request;
@@ -145,9 +147,9 @@ static NSString *const GET = @"get";
 - (NSString *)createParametersString
 {
     NSDictionary* parameters = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                @"client_credentials", @"grant_type",
-                                @"sample_user_1", @"username",
                                 @"RedWine", @"password",
+                                @"sample_user_1", @"username",
+                                @"client_credentials", @"grant_type",
                                 nil];
     
     return [parameters urlEncodedString];

@@ -20,17 +20,20 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JSONModel (1.0.2)
   - OCHamcrest (4.1.1)
   - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - JSONModel
   - OCHamcrest
   - OCMockito
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
 
