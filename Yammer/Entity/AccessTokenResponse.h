@@ -10,6 +10,10 @@
 #include "User.h"
 #include "AccessToken.h"
 
+@protocol AccessTokenResponse
+
+@end
+
 @interface AccessTokenResponse : JSONModel
 
 @property (nonatomic, strong) AccessToken* access_token;

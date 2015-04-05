@@ -7,9 +7,10 @@
 //
 
 #import "YammerAccountsViewController.h"
-#import "YMLoginController.h"
+#import "YMMultiUserLoginController.h"
 #import "YMConstants.h"
 #import "UIViewController+AlertMessage.h"
+#import "AccessTokenResponse.h"
 @interface YammerAccountsViewController ()
 
 @end
@@ -41,7 +42,8 @@
 
 - (void)didCompleteLogin:(NSNotification *)note
 {
-    NSString *authToken = note.userInfo[YMYammerSDKAuthTokenUserInfoKey];
+    NSArray * array = [[YMMultiUserLoginController sharedInstance] storedMultiUserAuthToken];
+//    NSString *authToken = note.userInfo[YMYammerSDKAuthTokenUserInfoKey];
 //    [self handleSuccessWithToken:authToken];
 }
 
@@ -53,7 +55,9 @@
 
 #pragma mark - IBAction
 - (IBAction)addNewYammerAccount:(id)sender {
-    [[YMLoginController sharedInstance] startLogin];
+    [[YMLoginController sharedInstance] clearAuthToken];
+    [[YMMultiUserLoginController sharedInstance] clearMultiUserAuthToken];
+    [[YMMultiUserLoginController sharedInstance] startLogin];
 }
 
 
