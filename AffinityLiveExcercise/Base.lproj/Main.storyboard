@@ -111,6 +111,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ya8-wY-6O5" id="bum-Jj-C6P"/>
+                                    <outlet property="delegate" destination="ya8-wY-6O5" id="OUJ-Hh-R3D"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIT-hQ-nKG">
                                 <rect key="frame" x="150" y="72" width="300" height="50"/>
@@ -143,6 +147,9 @@
                             <constraint firstItem="ysy-w1-jH6" firstAttribute="leading" secondItem="k8c-8J-eC9" secondAttribute="leading" id="hsJ-VP-7jb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ysy-w1-jH6" id="4F6-Bj-Fee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcX-YK-L9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,7 @@
 #import "NSArray+JSONModelExtensions.h"
 #import "JSONModel+ArrayOfModelsFromString.h"
 #import <PDKeychainBindingsController.h>
+#import <JSONModel.h>
 
 @implementation YMMultiUserLoginController
 
@@ -152,7 +153,7 @@
     {
         resp = [array objectAtIndex:i];
         //compare user to check whether two response are duplicated or not.
-        if([response.user isEqual:resp])
+        if([response.user.id isEqualToString:resp.user.id])
         {
             [array replaceObjectAtIndex:i withObject:response];
             return;

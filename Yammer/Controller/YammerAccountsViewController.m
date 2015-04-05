@@ -12,7 +12,8 @@
 #import "UIViewController+AlertMessage.h"
 #import "AccessTokenResponse.h"
 @interface YammerAccountsViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) NSArray<AccessTokenResponse>* responseArray;
 @end
 
 @implementation YammerAccountsViewController
@@ -25,6 +26,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCompleteLogin:) name:YMYammerSDKLoginDidCompleteNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFailLogin:) name:YMYammerSDKLoginDidFailNotification object:nil];
+    
+    self.responseArray = [[YMMultiUserLoginController sharedInstance] storedMultiUserAuthToken];
 }
 
 - (void)dealloc
@@ -42,9 +45,8 @@
 
 - (void)didCompleteLogin:(NSNotification *)note
 {
-    NSArray * array = [[YMMultiUserLoginController sharedInstance] storedMultiUserAuthToken];
-//    NSString *authToken = note.userInfo[YMYammerSDKAuthTokenUserInfoKey];
-//    [self handleSuccessWithToken:authToken];
+    self.responseArray = [[YMMultiUserLoginController sharedInstance] storedMultiUserAuthToken];
+    [self.tableView reloadData];
 }
 
 - (void)didFailLogin:(NSNotification *)note
@@ -55,8 +57,8 @@
 
 #pragma mark - IBAction
 - (IBAction)addNewYammerAccount:(id)sender {
-    [[YMLoginController sharedInstance] clearAuthToken];
-    [[YMMultiUserLoginController sharedInstance] clearMultiUserAuthToken];
+//    [[YMLoginController sharedInstance] clearAuthToken];
+//    [[YMMultiUserLoginController sharedInstance] clearMultiUserAuthToken];
     [[YMMultiUserLoginController sharedInstance] startLogin];
 }
 
@@ -64,12 +66,18 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.responseArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString * const CELL_IDENTIFIER = @"Account";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    
+    AccessTokenResponse * response = [self.responseArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = response.user.email;
+    return cell;
 }
 
 

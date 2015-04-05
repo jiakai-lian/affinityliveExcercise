@@ -15,4 +15,5 @@
 
 @property (nonatomic, copy) NSString<Optional> * email;
 @property (nonatomic, copy) NSString * full_name;
+@property (nonatomic, copy) NSString<Index> * id;
 @end
