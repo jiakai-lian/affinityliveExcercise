@@ -12,6 +12,9 @@
 #import "NSArray+Group.h"
 #import "TaskTableViewCell.h"
 #import "NSString+ALDate.h"
+#import "YammerAccountsViewController.h"
+
+static NSString * const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
 
 @interface TasksTableViewController ()
 
@@ -53,13 +56,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString * const CELL_IDENTIFIER = @"Cell";
+    TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     
     Task * task = [[self.tasks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
+    //display task info
     cell.labelTitle.text = task.title;
-    cell.labelDateStarted.text = [task.date_started formatedUnixTimeStamp];
-    cell.labelDateDue.text = [task.date_due formatedUnixTimeStamp];;
+    cell.labelDateStarted.text = [task.date_started formatedUnixTimeStampString];
+    cell.labelDateDue.text = [task.date_due formatedUnixTimeStampString];;
     
     return cell;
 }
@@ -72,15 +77,32 @@
     return [NSString stringWithFormat:@"%@ %@", assignee.firstname, assignee.surname];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Task * task = [[self.tasks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:TASK_SELECTED_SEGUE sender:task];
+}
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UIViewController * destination = [segue destinationViewController];
+    
+    NSAssert([sender isKindOfClass:[Task class]], @"Sender should be a task object");
+    NSAssert([destination conformsToProtocol: @protocol(TaskHandlerProtocol)], @"Destination view controller should support TaskHandlerProtocol");
+    
+    if([destination conformsToProtocol: @protocol(TaskHandlerProtocol)])
+    {
+        UIViewController<TaskHandlerProtocol> *controller = (UIViewController<TaskHandlerProtocol> *)destination;
+        controller.task = (Task *)sender;
+    }
 }
-*/
+
 
 @end

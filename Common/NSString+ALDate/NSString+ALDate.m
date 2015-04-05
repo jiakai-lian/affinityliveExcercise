@@ -17,7 +17,7 @@ static NSString const *DATETIME_FORMAT = @"dd'/'MM'/'yyyy' 'HH':'mm' 'z";
     return [NSDate dateWithTimeIntervalSince1970:[self doubleValue]];
 }
 
-- (NSString *) formatedUnixTimeStamp
+- (NSString *) formatedUnixTimeStampString
 {
     static NSDateFormatter *dateFormatter = nil;
     static dispatch_once_t onceToken;

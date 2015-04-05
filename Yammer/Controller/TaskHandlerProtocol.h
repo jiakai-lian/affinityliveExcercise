@@ -1,5 +1,5 @@
 //
-//  NSString+ALDate.h
+//  TaskHandlerProtocol.h
 //  AffinityLiveExcercise
 //
 //  Created by jiakai lian on 5/04/2015.
@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Task.h"
+@protocol TaskHandlerProtocol <NSObject>
 
-@interface NSString (ALDate)
-- (NSDate *) unixTimeStamp;
-- (NSString *) formatedUnixTimeStampString;
+@property (nonatomic, copy) Task * task;
+
 @end

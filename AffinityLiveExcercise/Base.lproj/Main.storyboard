@@ -25,8 +25,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-Fs-P6R">
-                                            <rect key="frame" x="93" y="38" width="499" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7h-Fs-P6R">
+                                            <rect key="frame" x="93" y="38" width="499" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="499" id="xxz-de-2GB"/>
                                             </constraints>
@@ -34,8 +34,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Due At:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZB-uz-gu4">
-                                            <rect key="frame" x="8" y="58" width="57" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due At:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZB-uz-gu4">
+                                            <rect key="frame" x="8" y="58" width="57" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="57" id="Obp-ZE-CE6"/>
                                             </constraints>
@@ -43,8 +43,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-mG-boG">
-                                            <rect key="frame" x="93" y="59" width="499" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-mG-boG">
+                                            <rect key="frame" x="93" y="59" width="499" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="499" id="yWB-NS-FXL"/>
                                             </constraints>
@@ -52,8 +52,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Started At:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sO-T7-N28">
-                                            <rect key="frame" x="8" y="38" width="77" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started At:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sO-T7-N28">
+                                            <rect key="frame" x="8" y="38" width="77" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="77" id="JKm-BN-0Fr"/>
                                             </constraints>
@@ -81,7 +81,6 @@
                                     <outlet property="labelDateDue" destination="TQ2-mG-boG" id="OnL-jb-VCD"/>
                                     <outlet property="labelDateStarted" destination="O7h-Fs-P6R" id="YgB-kL-ygh"/>
                                     <outlet property="labelTitle" destination="rDS-03-CaT" id="GxD-aC-DcH"/>
-                                    <segue destination="ya8-wY-6O5" kind="show" id="bgP-zL-FGo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -91,15 +90,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Overdue Task List" id="1Id-dU-hTh"/>
+                    <connections>
+                        <segue destination="ya8-wY-6O5" kind="show" identifier="TaskSelectedSegue" id="x98-nR-Qdf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yp0-dU-D3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164" y="413"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Yammer Account-->
         <scene sceneID="kZe-GS-VMK">
             <objects>
-                <viewController id="ya8-wY-6O5" sceneMemberID="viewController">
+                <viewController title="Select Yammer Account" id="ya8-wY-6O5" customClass="YammerAccountsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pgg-mb-uCS"/>
                         <viewControllerLayoutGuide type="bottom" id="k9r-B4-Yuw"/>
@@ -112,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="130" width="600" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8Ve-1w-7lE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Account" id="8Ve-1w-7lE">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ve-1w-7lE" id="U4D-7l-xhB">
@@ -137,6 +139,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNewYammerAccount:" destination="ya8-wY-6O5" eventType="touchUpInside" id="Gty-gP-gDg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
