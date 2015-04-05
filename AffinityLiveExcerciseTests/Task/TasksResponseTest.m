@@ -27,7 +27,7 @@
 }
 
 - (void)testSampleTasksResponse {
-    // This is an example of a functional test case.
+
     TasksResponse * response = [SampleTaskResponse GetSampleJSONResponse];
     
     XCTAssertNotNil(response);

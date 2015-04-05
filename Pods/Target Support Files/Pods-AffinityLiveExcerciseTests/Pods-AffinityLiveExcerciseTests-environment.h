@@ -30,6 +30,12 @@
 #define COCOAPODS_VERSION_MINOR_OCMockito 4
 #define COCOAPODS_VERSION_PATCH_OCMockito 0
 
+// OrderedDictionary
+#define COCOAPODS_POD_AVAILABLE_OrderedDictionary
+#define COCOAPODS_VERSION_MAJOR_OrderedDictionary 1
+#define COCOAPODS_VERSION_MINOR_OrderedDictionary 2
+#define COCOAPODS_VERSION_PATCH_OrderedDictionary 0
+
 // PDKeychainBindingsController
 #define COCOAPODS_POD_AVAILABLE_PDKeychainBindingsController
 #define COCOAPODS_VERSION_MAJOR_PDKeychainBindingsController 0

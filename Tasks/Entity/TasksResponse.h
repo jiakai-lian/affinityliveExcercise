@@ -8,11 +8,9 @@
 
 #import "JSONModel.h"
 #import "Task.h"
-#import "Meta.h"
 
 @interface TasksResponse : JSONModel
 
 @property (nonatomic, copy) NSArray<Task> * response;
-//@property (nonatomic, copy) Meta * meta;
 
 @end

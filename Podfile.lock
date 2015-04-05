@@ -4,6 +4,7 @@ PODS:
   - OCHamcrest (4.1.1)
   - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
+  - OrderedDictionary (1.2)
   - PDKeychainBindingsController (0.0.1)
 
 DEPENDENCIES:
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - JSONModel
   - OCHamcrest
   - OCMockito
+  - OrderedDictionary
   - PDKeychainBindingsController
 
 SPEC CHECKSUMS:
@@ -18,6 +20,7 @@ SPEC CHECKSUMS:
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
+  OrderedDictionary: 9cc5d69c5c5314ad696ed1839190724e83d534c7
   PDKeychainBindingsController: fa8cb3cf99f2ea9240d61066ed0549f34e2cec3c
 
 COCOAPODS: 0.35.0
