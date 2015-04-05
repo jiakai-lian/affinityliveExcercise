@@ -2,8 +2,9 @@
 platform :ios, '7.0'
 
 #target ‘AffinityLiveExcercise’ do
-pod 'AFNetworking', '~> 2.0'
+pod 'AFNetworking', '~> 1.0'
 pod 'JSONModel'
+pod 'PDKeychainBindingsController'
 #pod 'iVersion'
 #pod 'MBProgressHUD'
 #pod 'TPKeyboardAvoiding'
