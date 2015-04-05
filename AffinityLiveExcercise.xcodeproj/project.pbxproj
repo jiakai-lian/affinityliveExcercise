@@ -39,6 +39,7 @@
 		3E299FDC1AD1125C006D76F4 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FDB1AD1125C006D76F4 /* TaskTableViewCell.m */; };
 		3E299FE01AD11541006D76F4 /* NSString+ALDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FDF1AD11541006D76F4 /* NSString+ALDate.m */; };
 		3E299FEA1AD155DB006D76F4 /* YammerAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FE91AD155DB006D76F4 /* YammerAccountsViewController.m */; };
+		3E299FF21AD16174006D76F4 /* UIViewController+AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FF01AD16174006D76F4 /* UIViewController+AlertMessage.m */; };
 		48932733C5597BFDC1A47AB1 /* libPods-AffinityLiveExcerciseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */; };
 		F4E6E58773D2F361E9B299BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D4666074B0A3F3AE1398AC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,8 @@
 		3E299FE81AD155DB006D76F4 /* YammerAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YammerAccountsViewController.h; sourceTree = "<group>"; };
 		3E299FE91AD155DB006D76F4 /* YammerAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YammerAccountsViewController.m; sourceTree = "<group>"; };
 		3E299FEB1AD15AA3006D76F4 /* TaskHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskHandlerProtocol.h; sourceTree = "<group>"; };
+		3E299FF01AD16174006D76F4 /* UIViewController+AlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertMessage.m"; sourceTree = "<group>"; };
+		3E299FF11AD16174006D76F4 /* UIViewController+AlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertMessage.h"; sourceTree = "<group>"; };
 		8032B0E967A2E16528C70A74 /* Pods-AffinityLiveExcerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffinityLiveExcerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffinityLiveExcerciseTests/Pods-AffinityLiveExcerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AffinityLiveExcerciseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D4666074B0A3F3AE1398AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +235,7 @@
 		3E1C1D1D1ACF8DD00002C545 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3E299FEC1AD16149006D76F4 /* UIViewController+AlertMessage */,
 				3E299FDD1AD1152B006D76F4 /* NSString+ALDate */,
 				3E299FB51AD10C76006D76F4 /* NSArray+Group */,
 				3E1C1D211ACF98420002C545 /* NSDictionary+URLEncoding */,
@@ -378,6 +382,15 @@
 				3E299FEB1AD15AA3006D76F4 /* TaskHandlerProtocol.h */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3E299FEC1AD16149006D76F4 /* UIViewController+AlertMessage */ = {
+			isa = PBXGroup;
+			children = (
+				3E299FF11AD16174006D76F4 /* UIViewController+AlertMessage.h */,
+				3E299FF01AD16174006D76F4 /* UIViewController+AlertMessage.m */,
+			);
+			path = "UIViewController+AlertMessage";
 			sourceTree = "<group>";
 		};
 		51BF9C1FD382ED70C5B89DAA /* Pods */ = {
@@ -577,6 +590,7 @@
 				3E299FD61AD10F42006D76F4 /* Task.m in Sources */,
 				3E299F791AD0B155006D76F4 /* NSURL+YMQueryParameters.m in Sources */,
 				3E299F7C1AD0B155006D76F4 /* YMLoginController.m in Sources */,
+				3E299FF21AD16174006D76F4 /* UIViewController+AlertMessage.m in Sources */,
 				3E1C1CEC1ACF79FF0002C545 /* main.m in Sources */,
 				3E299FD21AD10F42006D76F4 /* Assignee.m in Sources */,
 				3E299FDC1AD1125C006D76F4 /* TaskTableViewCell.m in Sources */,

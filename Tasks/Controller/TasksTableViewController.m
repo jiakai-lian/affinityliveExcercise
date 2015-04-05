@@ -77,6 +77,7 @@ static NSString * const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
     return [NSString stringWithFormat:@"%@ %@", assignee.firstname, assignee.surname];
 }
 
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Task * task = [[self.tasks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];

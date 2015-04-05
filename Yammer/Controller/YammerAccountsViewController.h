@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskHandlerProtocol.h"
-@interface YammerAccountsViewController : UIViewController <TaskHandlerProtocol>
+@interface YammerAccountsViewController : UIViewController <TaskHandlerProtocol, UITableViewDataSource, UITableViewDelegate>
 
 @end
