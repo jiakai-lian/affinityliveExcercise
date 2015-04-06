@@ -143,8 +143,6 @@
  *
  *  @param array    an array of AccessTokenResponse objects
  *  @param response the new response got from Internet
- *
- *  @return YES for find a duplicated response and replace.  No for no duplicated response found
  */
 - (void) replaceOrAppendResponse:(NSMutableArray<AccessTokenResponse> *)array withResponse:(AccessTokenResponse*)response
 {
@@ -152,15 +150,15 @@
     for(NSUInteger i=0; i < array.count; i ++)
     {
         resp = [array objectAtIndex:i];
-        //compare user to check whether two response are duplicated or not.
-        if([response.user.id isEqualToString:resp.user.id])
+        //compare user to check whether two response have duplicated user or not.
+        if([response.user isEqual:resp.user])
         {
             [array replaceObjectAtIndex:i withObject:response];
             return;
         }
     }
     
-    return [array addObject:response];
+    [array addObject:response];
 }
 
 
