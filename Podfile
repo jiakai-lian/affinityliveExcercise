@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '7.0'
 
-#target ‘AffinityLiveExcercise’ do
+#target ‘AffinityLiveExercise’ do
 pod 'AFNetworking', '~> 1.0'
 pod 'JSONModel'
 pod 'PDKeychainBindingsController'
@@ -19,7 +19,7 @@ pod 'OrderedDictionary'
 #pod 'JBChartView'
 #end
 
-target 'AffinityLiveExcerciseTests' do
+target 'AffinityLiveExerciseTests' do
   pod 'OCHamcrest'
   pod 'OCMockito'
 end

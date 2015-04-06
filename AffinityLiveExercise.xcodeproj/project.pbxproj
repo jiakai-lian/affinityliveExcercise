@@ -43,6 +43,8 @@
 		3E299FF51AD16470006D76F4 /* YMMultiUserLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FF41AD16470006D76F4 /* YMMultiUserLoginController.m */; };
 		3E299FFC1AD17D02006D76F4 /* NSArray+JSONModelExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FFB1AD17D02006D76F4 /* NSArray+JSONModelExtensions.m */; };
 		3E29A0001AD17E4C006D76F4 /* JSONModel+ArrayOfModelsFromString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E299FFF1AD17E4C006D76F4 /* JSONModel+ArrayOfModelsFromString.m */; };
+		3E29A0031AD209C0006D76F4 /* YammerFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E29A0021AD209C0006D76F4 /* YammerFeedViewController.m */; };
+		3E29A0081AD216FE006D76F4 /* BorderedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E29A0071AD216FE006D76F4 /* BorderedTextView.m */; };
 		48932733C5597BFDC1A47AB1 /* libPods-AffinityLiveExcerciseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */; };
 		F4E6E58773D2F361E9B299BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D4666074B0A3F3AE1398AC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -58,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E1C1CE61ACF79FF0002C545 /* AffinityLiveExcercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AffinityLiveExcercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1C1CE61ACF79FF0002C545 /* AffinityLiveExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AffinityLiveExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1C1CEA1ACF79FF0002C545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E1C1CEB1ACF79FF0002C545 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E1C1CED1ACF79FF0002C545 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 		3E1C1CF41ACF79FF0002C545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E1C1CF61ACF79FF0002C545 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E1C1CF91ACF79FF0002C545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExcerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AffinityLiveExcerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AffinityLiveExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1C1D041ACF79FF0002C545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E1C1D051ACF79FF0002C545 /* AffinityLiveExcerciseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AffinityLiveExcerciseTests.m; sourceTree = "<group>"; };
 		3E1C1D191ACF88E10002C545 /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
@@ -127,6 +129,11 @@
 		3E299FFB1AD17D02006D76F4 /* NSArray+JSONModelExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModelExtensions.m"; sourceTree = "<group>"; };
 		3E299FFE1AD17E4C006D76F4 /* JSONModel+ArrayOfModelsFromString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+ArrayOfModelsFromString.h"; sourceTree = "<group>"; };
 		3E299FFF1AD17E4C006D76F4 /* JSONModel+ArrayOfModelsFromString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+ArrayOfModelsFromString.m"; sourceTree = "<group>"; };
+		3E29A0011AD209C0006D76F4 /* YammerFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YammerFeedViewController.h; sourceTree = "<group>"; };
+		3E29A0021AD209C0006D76F4 /* YammerFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YammerFeedViewController.m; sourceTree = "<group>"; };
+		3E29A0041AD20D9D006D76F4 /* AuthTokenHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthTokenHandlerProtocol.h; sourceTree = "<group>"; };
+		3E29A0061AD216FE006D76F4 /* BorderedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedTextView.h; sourceTree = "<group>"; };
+		3E29A0071AD216FE006D76F4 /* BorderedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedTextView.m; sourceTree = "<group>"; };
 		8032B0E967A2E16528C70A74 /* Pods-AffinityLiveExcerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffinityLiveExcerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffinityLiveExcerciseTests/Pods-AffinityLiveExcerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE2D6DACFB6DD504629A78F /* libPods-AffinityLiveExcerciseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AffinityLiveExcerciseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D4666074B0A3F3AE1398AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,8 +169,8 @@
 				3E299F5D1ACFFE66006D76F4 /* Yammer */,
 				3E1C1D1D1ACF8DD00002C545 /* Common */,
 				3E1C1D181ACF88B00002C545 /* Service */,
-				3E1C1CE81ACF79FF0002C545 /* AffinityLiveExcercise */,
-				3E1C1D021ACF79FF0002C545 /* AffinityLiveExcerciseTests */,
+				3E1C1CE81ACF79FF0002C545 /* AffinityLiveExercise */,
+				3E1C1D021ACF79FF0002C545 /* AffinityLiveExerciseTests */,
 				3E1C1CE71ACF79FF0002C545 /* Products */,
 				51BF9C1FD382ED70C5B89DAA /* Pods */,
 				A4678B6CF758669F778314C2 /* Frameworks */,
@@ -173,13 +180,13 @@
 		3E1C1CE71ACF79FF0002C545 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E1C1CE61ACF79FF0002C545 /* AffinityLiveExcercise.app */,
-				3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExcerciseTests.xctest */,
+				3E1C1CE61ACF79FF0002C545 /* AffinityLiveExercise.app */,
+				3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExerciseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E1C1CE81ACF79FF0002C545 /* AffinityLiveExcercise */ = {
+		3E1C1CE81ACF79FF0002C545 /* AffinityLiveExercise */ = {
 			isa = PBXGroup;
 			children = (
 				3E1C1CED1ACF79FF0002C545 /* AppDelegate.h */,
@@ -191,6 +198,7 @@
 				3E1C1CF81ACF79FF0002C545 /* LaunchScreen.xib */,
 				3E1C1CE91ACF79FF0002C545 /* Supporting Files */,
 			);
+			name = AffinityLiveExercise;
 			path = AffinityLiveExcercise;
 			sourceTree = "<group>";
 		};
@@ -203,7 +211,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3E1C1D021ACF79FF0002C545 /* AffinityLiveExcerciseTests */ = {
+		3E1C1D021ACF79FF0002C545 /* AffinityLiveExerciseTests */ = {
 			isa = PBXGroup;
 			children = (
 				3E299F9A1AD0C871006D76F4 /* Task */,
@@ -212,6 +220,7 @@
 				3E1C1D051ACF79FF0002C545 /* AffinityLiveExcerciseTests.m */,
 				3E1C1D031ACF79FF0002C545 /* Supporting Files */,
 			);
+			name = AffinityLiveExerciseTests;
 			path = AffinityLiveExcerciseTests;
 			sourceTree = "<group>";
 		};
@@ -244,6 +253,7 @@
 		3E1C1D1D1ACF8DD00002C545 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3E29A0051AD216D5006D76F4 /* BorderedTextView */,
 				3E299FFD1AD17E31006D76F4 /* JSONModel+ArrayofModelsFromString */,
 				3E299FF61AD17CA5006D76F4 /* NSArray+JSONModelExtensions */,
 				3E299FEC1AD16149006D76F4 /* UIViewController+AlertMessage */,
@@ -388,9 +398,12 @@
 		3E299FE11AD12E40006D76F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3E29A0041AD20D9D006D76F4 /* AuthTokenHandlerProtocol.h */,
+				3E299FEB1AD15AA3006D76F4 /* TaskHandlerProtocol.h */,
 				3E299FE81AD155DB006D76F4 /* YammerAccountsViewController.h */,
 				3E299FE91AD155DB006D76F4 /* YammerAccountsViewController.m */,
-				3E299FEB1AD15AA3006D76F4 /* TaskHandlerProtocol.h */,
+				3E29A0011AD209C0006D76F4 /* YammerFeedViewController.h */,
+				3E29A0021AD209C0006D76F4 /* YammerFeedViewController.m */,
 				3E299FF31AD16470006D76F4 /* YMMultiUserLoginController.h */,
 				3E299FF41AD16470006D76F4 /* YMMultiUserLoginController.m */,
 			);
@@ -424,6 +437,15 @@
 			path = "JSONModel+ArrayofModelsFromString";
 			sourceTree = "<group>";
 		};
+		3E29A0051AD216D5006D76F4 /* BorderedTextView */ = {
+			isa = PBXGroup;
+			children = (
+				3E29A0061AD216FE006D76F4 /* BorderedTextView.h */,
+				3E29A0071AD216FE006D76F4 /* BorderedTextView.m */,
+			);
+			path = BorderedTextView;
+			sourceTree = "<group>";
+		};
 		51BF9C1FD382ED70C5B89DAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,9 +469,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E1C1CE51ACF79FF0002C545 /* AffinityLiveExcercise */ = {
+		3E1C1CE51ACF79FF0002C545 /* AffinityLiveExercise */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E1C1D091ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExcercise" */;
+			buildConfigurationList = 3E1C1D091ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExercise" */;
 			buildPhases = (
 				921A7E63F7265D60AF6FFDED /* Check Pods Manifest.lock */,
 				3E1C1CE21ACF79FF0002C545 /* Sources */,
@@ -461,14 +483,14 @@
 			);
 			dependencies = (
 			);
-			name = AffinityLiveExcercise;
+			name = AffinityLiveExercise;
 			productName = AffinityLiveExcercise;
-			productReference = 3E1C1CE61ACF79FF0002C545 /* AffinityLiveExcercise.app */;
+			productReference = 3E1C1CE61ACF79FF0002C545 /* AffinityLiveExercise.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E1C1CFE1ACF79FF0002C545 /* AffinityLiveExcerciseTests */ = {
+		3E1C1CFE1ACF79FF0002C545 /* AffinityLiveExerciseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E1C1D0C1ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExcerciseTests" */;
+			buildConfigurationList = 3E1C1D0C1ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExerciseTests" */;
 			buildPhases = (
 				FC0A2A9FB3CCD7C0623487A5 /* Check Pods Manifest.lock */,
 				3E1C1CFB1ACF79FF0002C545 /* Sources */,
@@ -481,9 +503,9 @@
 			dependencies = (
 				3E1C1D011ACF79FF0002C545 /* PBXTargetDependency */,
 			);
-			name = AffinityLiveExcerciseTests;
+			name = AffinityLiveExerciseTests;
 			productName = AffinityLiveExcerciseTests;
-			productReference = 3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExcerciseTests.xctest */;
+			productReference = 3E1C1CFF1ACF79FF0002C545 /* AffinityLiveExerciseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -504,7 +526,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E1C1CE11ACF79FF0002C545 /* Build configuration list for PBXProject "AffinityLiveExcercise" */;
+			buildConfigurationList = 3E1C1CE11ACF79FF0002C545 /* Build configuration list for PBXProject "AffinityLiveExercise" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -517,8 +539,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E1C1CE51ACF79FF0002C545 /* AffinityLiveExcercise */,
-				3E1C1CFE1ACF79FF0002C545 /* AffinityLiveExcerciseTests */,
+				3E1C1CE51ACF79FF0002C545 /* AffinityLiveExercise */,
+				3E1C1CFE1ACF79FF0002C545 /* AffinityLiveExerciseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -613,11 +635,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E29A0031AD209C0006D76F4 /* YammerFeedViewController.m in Sources */,
 				3E299F661AD00055006D76F4 /* User.m in Sources */,
 				3E1C1CF21ACF79FF0002C545 /* ViewController.m in Sources */,
 				3E299FD71AD10F42006D76F4 /* TasksResponse.m in Sources */,
 				3E1C1CEF1ACF79FF0002C545 /* AppDelegate.m in Sources */,
 				3E299F7A1AD0B155006D76F4 /* YMConstants.m in Sources */,
+				3E29A0081AD216FE006D76F4 /* BorderedTextView.m in Sources */,
 				3E299FD61AD10F42006D76F4 /* Task.m in Sources */,
 				3E299F791AD0B155006D76F4 /* NSURL+YMQueryParameters.m in Sources */,
 				3E299F7C1AD0B155006D76F4 /* YMLoginController.m in Sources */,
@@ -659,7 +683,7 @@
 /* Begin PBXTargetDependency section */
 		3E1C1D011ACF79FF0002C545 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3E1C1CE51ACF79FF0002C545 /* AffinityLiveExcercise */;
+			target = 3E1C1CE51ACF79FF0002C545 /* AffinityLiveExercise */;
 			targetProxy = 3E1C1D001ACF79FF0002C545 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -769,7 +793,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AffinityLiveExcercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AffinityLiveExercise;
 			};
 			name = Debug;
 		};
@@ -780,7 +804,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AffinityLiveExcercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AffinityLiveExercise;
 			};
 			name = Release;
 		};
@@ -799,7 +823,7 @@
 				);
 				INFOPLIST_FILE = AffinityLiveExcerciseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AffinityLiveExerciseTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AffinityLiveExcercise.app/AffinityLiveExcercise";
 			};
 			name = Debug;
@@ -815,7 +839,7 @@
 				);
 				INFOPLIST_FILE = AffinityLiveExcerciseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AffinityLiveExerciseTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AffinityLiveExcercise.app/AffinityLiveExcercise";
 			};
 			name = Release;
@@ -823,7 +847,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E1C1CE11ACF79FF0002C545 /* Build configuration list for PBXProject "AffinityLiveExcercise" */ = {
+		3E1C1CE11ACF79FF0002C545 /* Build configuration list for PBXProject "AffinityLiveExercise" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E1C1D071ACF79FF0002C545 /* Debug */,
@@ -832,7 +856,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E1C1D091ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExcercise" */ = {
+		3E1C1D091ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExercise" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E1C1D0A1ACF79FF0002C545 /* Debug */,
@@ -841,7 +865,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E1C1D0C1ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExcerciseTests" */ = {
+		3E1C1D0C1ACF79FF0002C545 /* Build configuration list for PBXNativeTarget "AffinityLiveExerciseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E1C1D0D1ACF79FF0002C545 /* Debug */,

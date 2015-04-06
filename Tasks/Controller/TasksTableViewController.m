@@ -74,7 +74,7 @@ static NSString * const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
     Assignee *assignee = [self.tasks keyAtIndex:section];
 
     //section title is the full name of the assignee
-    return [NSString stringWithFormat:@"%@ %@", assignee.firstname, assignee.surname];
+    return [assignee fullName];
 }
 
 #pragma mark - UITableViewDelegate

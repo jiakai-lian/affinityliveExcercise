@@ -15,4 +15,6 @@
 @property (nonatomic, copy) NSString<Index> * id;
 @property (nonatomic, copy) NSString<Optional> * surname;
 
+- (NSString *)fullName;
+
 @end

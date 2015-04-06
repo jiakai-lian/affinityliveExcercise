@@ -10,5 +10,9 @@
 
 @implementation Assignee
 
+- (NSString * )fullName
+{
+    return [NSString stringWithFormat:@"%@ %@",self.firstname, self.surname];
+}
 
 @end
