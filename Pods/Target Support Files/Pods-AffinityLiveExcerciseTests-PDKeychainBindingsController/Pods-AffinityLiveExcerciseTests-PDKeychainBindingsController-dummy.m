@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_AffinityLiveExcerciseTests_PDKeychainBindingsController : NSObject
-@end
-@implementation PodsDummy_Pods_AffinityLiveExcerciseTests_PDKeychainBindingsController
-@end

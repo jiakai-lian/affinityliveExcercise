@@ -18,6 +18,18 @@
 #define COCOAPODS_VERSION_MINOR_JSONModel 0
 #define COCOAPODS_VERSION_PATCH_JSONModel 2
 
+// OCHamcrest
+#define COCOAPODS_POD_AVAILABLE_OCHamcrest
+#define COCOAPODS_VERSION_MAJOR_OCHamcrest 4
+#define COCOAPODS_VERSION_MINOR_OCHamcrest 1
+#define COCOAPODS_VERSION_PATCH_OCHamcrest 1
+
+// OCMockito
+#define COCOAPODS_POD_AVAILABLE_OCMockito
+#define COCOAPODS_VERSION_MAJOR_OCMockito 1
+#define COCOAPODS_VERSION_MINOR_OCMockito 4
+#define COCOAPODS_VERSION_PATCH_OCMockito 0
+
 // OrderedDictionary
 #define COCOAPODS_POD_AVAILABLE_OrderedDictionary
 #define COCOAPODS_VERSION_MAJOR_OrderedDictionary 1

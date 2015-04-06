@@ -6,6 +6,7 @@ PODS:
     - OCHamcrest (~> 4.0)
   - OrderedDictionary (1.2)
   - PDKeychainBindingsController (0.0.1)
+  - TPKeyboardAvoiding (1.2.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - OCMockito
   - OrderedDictionary
   - PDKeychainBindingsController
+  - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
@@ -22,5 +24,6 @@ SPEC CHECKSUMS:
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   OrderedDictionary: 9cc5d69c5c5314ad696ed1839190724e83d534c7
   PDKeychainBindingsController: fa8cb3cf99f2ea9240d61066ed0549f34e2cec3c
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
 
 COCOAPODS: 0.35.0

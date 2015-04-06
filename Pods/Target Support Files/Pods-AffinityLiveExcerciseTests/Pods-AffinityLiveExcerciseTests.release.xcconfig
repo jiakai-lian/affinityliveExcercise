@@ -1,6 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/JSONModel" "${PODS_ROOT}/Headers/Public/OCHamcrest" "${PODS_ROOT}/Headers/Public/OCMockito" "${PODS_ROOT}/Headers/Public/OrderedDictionary" "${PODS_ROOT}/Headers/Public/PDKeychainBindingsController"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/JSONModel" -isystem "${PODS_ROOT}/Headers/Public/OCHamcrest" -isystem "${PODS_ROOT}/Headers/Public/OCMockito" -isystem "${PODS_ROOT}/Headers/Public/OrderedDictionary" -isystem "${PODS_ROOT}/Headers/Public/PDKeychainBindingsController"
-OTHER_LDFLAGS = -ObjC -l"Pods-AffinityLiveExcerciseTests-AFNetworking" -l"Pods-AffinityLiveExcerciseTests-JSONModel" -l"Pods-AffinityLiveExcerciseTests-OCHamcrest" -l"Pods-AffinityLiveExcerciseTests-OCMockito" -l"Pods-AffinityLiveExcerciseTests-OrderedDictionary" -l"Pods-AffinityLiveExcerciseTests-PDKeychainBindingsController" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
-PODS_ROOT = ${SRCROOT}/Pods
