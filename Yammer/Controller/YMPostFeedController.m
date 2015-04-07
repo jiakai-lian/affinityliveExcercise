@@ -52,9 +52,17 @@
                      [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKPostFeedDidFailNotification object:strongSelf userInfo:@{YMYammerSDKErrorUserInfoKey : error}];
                      return;
                  }
-                 //assume the messages array only has one item. for exercise purpose
-                 Message *msg = [response.messages firstObject];
-                 [strongSelf replyFeed:message byRepliedToId:msg.id withAuthToken:authToken];
+                 
+                 if(message.length)//if have message, post a reply feed
+                 {
+                     //assume the messages array only has one item. for exercise purpose
+                     Message *msg = [response.messages firstObject];
+                     [strongSelf replyFeed:message byRepliedToId:msg.id withAuthToken:authToken];
+                 }
+                 else//complete directly
+                 {
+                     [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKPostFeedDidCompleteNotification object:strongSelf userInfo:nil];
+                 }
 
 
              }

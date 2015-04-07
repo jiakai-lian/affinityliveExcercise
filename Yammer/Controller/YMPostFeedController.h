@@ -10,9 +10,7 @@
 
 @interface YMPostFeedController : NSObject
 
-//@property (nonatomic, copy) NSString * authToken;
-//@property (nonatomic, copy) NSString * message;
 
 + (instancetype)sharedInstance;
-//- (void)postFeed:(NSString *)message withAuthToken:(NSString*) authtoken;
+- (void)postTask:(NSString *)taskMessage andMessage:(NSString *)message withAuthToken:(NSString *)authToken;
 @end

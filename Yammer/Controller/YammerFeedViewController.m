@@ -9,6 +9,7 @@
 #import "YammerFeedViewController.h"
 #import "YMConstants.h"
 #import "UIViewController+AlertMessage.h"
+#import "YMPostFeedController.h"
 
 @interface YammerFeedViewController ()
 @property(weak, nonatomic) IBOutlet UILabel *labelTitle;
@@ -65,6 +66,11 @@
     [self showAlertMessageWithTitle:@"Post Feed Error" andError:error];
 }
 
+#pragma mark - IBAction
+- (IBAction)postFeed:(id)sender {
+    NSString * taskString = [NSString stringWithFormat:@"Title:%@\nAssignee=%@\nManager=%@\nDescription:%@",task.title,[task.assignee fullName],[task.assignee fullName],[task toJSONString]];
+    [[YMPostFeedController sharedInstance] postTask:taskString andMessage:self.textViewMessage.text withAuthToken:token];
+}
 
 /*
 #pragma mark - Navigation
