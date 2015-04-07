@@ -1,6 +1,6 @@
 //
 //  SampleTaskResponse.m
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 5/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
@@ -18,7 +18,7 @@
     NSString *file = [[NSBundle mainBundle] pathForResource:@"SampleTasksResponse"
                                                      ofType:@"json"];
 
-    NSData *data = [NSData dataWithContentsOfFile:file options:NSUTF8StringEncoding error:&error];
+    NSData *data = [NSData dataWithContentsOfFile:file options:NSDataReadingMappedIfSafe error:&error];
 
     // you can skip this step by just using the NSData that you get from the http request instead of converting it to a string.
 

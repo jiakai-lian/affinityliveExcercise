@@ -1,6 +1,6 @@
 //
 //  NSString+ALDate.h
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 5/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
@@ -11,5 +11,5 @@
 @interface NSString (ALDate)
 - (NSDate *)unixTimeStamp;
 
-- (NSString *)formatedUnixTimeStampString;
+- (NSString *)formattedUnixTimeStampString;
 @end

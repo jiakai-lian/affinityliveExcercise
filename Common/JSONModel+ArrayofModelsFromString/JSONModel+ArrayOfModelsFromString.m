@@ -1,6 +1,6 @@
 //
 //  JSONModel+ArrayOfModelsFromString.m
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //  An category to convert a json array string to an array of models
 //  Created by jiakai lian on 6/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.

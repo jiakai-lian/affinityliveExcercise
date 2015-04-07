@@ -1,6 +1,6 @@
 //
 //  NSString+ALDate.m
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 5/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
@@ -17,7 +17,7 @@ static NSString const *DATETIME_FORMAT = @"dd'/'MM'/'yyyy' 'HH':'mm' 'z";
     return [NSDate dateWithTimeIntervalSince1970:[self doubleValue]];
 }
 
-- (NSString *)formatedUnixTimeStampString
+- (NSString *)formattedUnixTimeStampString
 {
     static NSDateFormatter *dateFormatter = nil;
     static dispatch_once_t onceToken;

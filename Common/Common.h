@@ -1,13 +1,13 @@
 //
 //  Common.h
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 4/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
 //
 
-#ifndef AffinityLiveExcercise_Common_h
-#define AffinityLiveExcercise_Common_h
+#ifndef AffinityLiveExercise_Common_h
+#define AffinityLiveExercise_Common_h
 
 //enhanced logging
 #ifdef DEBUG

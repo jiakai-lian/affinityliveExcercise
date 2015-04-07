@@ -19,7 +19,7 @@ NSString *const YAMMER_QUERY_PARAM_ERROR = @"error";
 NSString *const YAMMER_QUERY_PARAM_ERROR_REASON = @"error_reason";
 NSString *const YAMMER_QUERY_PARAM_ERROR_DESCRIPTION = @"error_description";
 
-// Note: In this sample app, we assuming single-network access.  If you have to work with mutliple networks you may
+// Note: In this sample app, we assuming single-network access.  If you have to work with multiple networks you may
 // want to save your authTokens differently (per network)
 NSString *const YAMMER_KEYCHAIN_AUTH_TOKEN_KEY = @"yammerAuthToken";
 NSString *const YAMMER_KEYCHAIN_STATE_KEY = @"yammerState";
@@ -112,10 +112,10 @@ NSString *const YAMMER_KEYCHAIN_STATE_KEY = @"yammerState";
             // DEVELOPER: Put your error display/processing code here...
             NSLog(@"error: %@", errorString);
 
-            NSError *error = [NSError errorWithDomain:YMYammerSDKErrorDomain code:YMYammerSDKLoginAuthenticationError userInfo:@{NSLocalizedDescriptionKey : errorString}];
+            NSError *err = [NSError errorWithDomain:YMYammerSDKErrorDomain code:YMYammerSDKLoginAuthenticationError userInfo:@{NSLocalizedDescriptionKey : errorString}];
 
-            [self.delegate loginController:self didFailWithError:error];
-            [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidFailNotification object:self userInfo:@{YMYammerSDKErrorUserInfoKey : error}];
+            [self.delegate loginController:self didFailWithError:err];
+            [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidFailNotification object:self userInfo:@{YMYammerSDKErrorUserInfoKey : err}];
         }
         else if (code)
         {

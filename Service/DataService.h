@@ -1,6 +1,6 @@
 //
 //  DataService.h
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //  protocol of Data service
 //  the application should use this protocol to get data, instead of communicating with a particular data service class. By doing this, we can easily adapt data source from network, file, db, core data etc.
 //  Created by jiakai lian on 4/04/2015.

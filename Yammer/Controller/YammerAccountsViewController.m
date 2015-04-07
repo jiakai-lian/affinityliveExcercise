@@ -1,6 +1,6 @@
 //
 //  YammerAccountsViewController.m
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 5/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
@@ -82,7 +82,7 @@ static NSString *const POST_FEED_SEGUE = @"PostFeedSegue";
     static NSString *const CELL_IDENTIFIER = @"Account";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
 
-    AccessTokenResponse *response = [self.responseArray objectAtIndex:indexPath.row];
+    AccessTokenResponse *response = [self.responseArray objectAtIndex:(NSUInteger)indexPath.row];
 
     cell.textLabel.text = response.user.email;
     return cell;

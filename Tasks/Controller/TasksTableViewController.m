@@ -1,6 +1,6 @@
 //
 //  TasksTableViewController.m
-//  AffinityLiveExcercise
+//  AffinityLiveExercise
 //
 //  Created by jiakai lian on 5/04/2015.
 //  Copyright (c) 2015 jiakai. All rights reserved.
@@ -57,7 +57,7 @@ static NSString *const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[self.tasks objectAtIndex:section] count];
+    return [[self.tasks objectAtIndex:(NSUInteger)section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,19 +65,19 @@ static NSString *const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
     static NSString *const CELL_IDENTIFIER = @"Cell";
     TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
 
-    Task *task = [[self.tasks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Task *task = [[self.tasks objectAtIndex:(NSUInteger)indexPath.section] objectAtIndex:(NSUInteger)indexPath.row];
 
     //display task info
     cell.labelTitle.text = task.title;
-    cell.labelDateStarted.text = [task.date_started formatedUnixTimeStampString];
-    cell.labelDateDue.text = [task.date_due formatedUnixTimeStampString];;
+    cell.labelDateStarted.text = [task.date_started formattedUnixTimeStampString];
+    cell.labelDateDue.text = [task.date_due formattedUnixTimeStampString];;
 
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    Assignee *assignee = [self.tasks keyAtIndex:section];
+    Assignee *assignee = [self.tasks keyAtIndex:(NSUInteger)section];
 
     //section title is the full name of the assignee
     return [assignee fullName];
@@ -86,7 +86,7 @@ static NSString *const TASK_SELECTED_SEGUE = @"TaskSelectedSegue";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Task *task = [[self.tasks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Task *task = [[self.tasks objectAtIndex:(NSUInteger)indexPath.section] objectAtIndex:(NSUInteger)indexPath.row];
     [self performSegueWithIdentifier:TASK_SELECTED_SEGUE sender:task];
 }
 

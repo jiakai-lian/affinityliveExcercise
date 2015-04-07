@@ -27,7 +27,7 @@
 
 - (void)postTask:(NSString *)taskMessage andMessage:(NSString *)message withAuthToken:(NSString *)authToken
 {
-    YMHTTPClient *client = [[YMHTTPClient alloc] initWithBaseURL:YAMMER_BASE_URL.copy authToken:authToken];
+    YMHTTPClient *client = [[YMHTTPClient alloc] initWithBaseURL:[[NSURL alloc] initWithString:YAMMER_BASE_URL] authToken:authToken];
 
     NSDictionary *params =
             @{@"body" : taskMessage};
@@ -77,7 +77,7 @@
 
 - (void)replyFeed:(NSString *)message byRepliedToId:(NSString *)repliedToId withAuthToken:(NSString *)authToken
 {
-    YMHTTPClient *client = [[YMHTTPClient alloc] initWithBaseURL:YAMMER_BASE_URL.copy authToken:authToken];
+    YMHTTPClient *client = [[YMHTTPClient alloc] initWithBaseURL:[[NSURL alloc] initWithString:YAMMER_BASE_URL] authToken:authToken];
 
     NSDictionary *params =
             @{@"body" : message,
