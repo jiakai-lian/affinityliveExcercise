@@ -16,25 +16,28 @@
 
 @implementation TasksResponseTest
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testSampleTasksResponse {
+- (void)testSampleTasksResponse
+{
 
-    TasksResponse * response = [SampleTaskResponse GetSampleJSONResponse];
-    
+    TasksResponse *response = [SampleTaskResponse GetSampleJSONResponse];
+
     XCTAssertNotNil(response);
     XCTAssertNotNil(response.response);
     XCTAssertEqual(response.response.count, 2);
-    
-    for(Task * task in response.response)
+
+    for (Task *task in response.response)
     {
         XCTAssertNotNil(task.title);
         XCTAssertNotNil(task.id);

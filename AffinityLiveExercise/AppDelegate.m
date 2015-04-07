@@ -56,12 +56,15 @@
 // that comes with this sample app or the Yammer iOS SDK Instructions on how to do this.  The custom scheme and URI/URL you add to the plist
 // file must match the redirect URI you set on the Yammer client applications web site.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+
     // If we arrive here it means the login was successful, so now let's get the authToken to be used on all subsequent requests
     if ([[YMMultiUserLoginController sharedInstance] handleLoginRedirectFromUrl:url sourceApplication:sourceApplication])
+    {
         return YES;
-    
+    }
+
     // URL was not a match, or came from an application other than Safari
     return NO;
 }

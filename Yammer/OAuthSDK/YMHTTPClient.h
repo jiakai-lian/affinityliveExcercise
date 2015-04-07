@@ -14,13 +14,14 @@ static NSString *const STATE_PARAM = @"state";
  At the moment, this is essentially a lightweight wrapper around AFHTTPClient.
  */
 @interface YMHTTPClient : NSObject
-@property (nonatomic, strong) NSString *authToken;
+@property(nonatomic, strong) NSString *authToken;
 
 /**
  Default initializer.
  @param baseURL The base URL.
  */
 - (id)initWithBaseURL:(NSURL *)baseURL;
+
 - (id)initWithBaseURL:(NSURL *)baseURL authToken:(NSString *)authToken;
 
 /**

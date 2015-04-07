@@ -22,10 +22,12 @@
 
 #import "AFJSONRequestOperation.h"
 
-static dispatch_queue_t json_request_operation_processing_queue() {
+static dispatch_queue_t json_request_operation_processing_queue()
+{
     static dispatch_queue_t af_json_request_operation_processing_queue;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         af_json_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.json-request.processing", DISPATCH_QUEUE_CONCURRENT);
     });
 
@@ -33,9 +35,9 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 }
 
 @interface AFJSONRequestOperation ()
-@property (readwrite, nonatomic, strong) id responseJSON;
-@property (readwrite, nonatomic, strong) NSError *JSONError;
-@property (readwrite, nonatomic, strong) NSRecursiveLock *lock;
+@property(readwrite, nonatomic, strong) id responseJSON;
+@property(readwrite, nonatomic, strong) NSError *JSONError;
+@property(readwrite, nonatomic, strong) NSRecursiveLock *lock;
 @end
 
 @implementation AFJSONRequestOperation
@@ -45,17 +47,21 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 @dynamic lock;
 
 + (instancetype)JSONRequestOperationWithRequest:(NSURLRequest *)urlRequest
-										success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
-										failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
+                                        success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
+                                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
 {
-    AFJSONRequestOperation *requestOperation = [(AFJSONRequestOperation *)[self alloc] initWithRequest:urlRequest];
-    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success) {
+    AFJSONRequestOperation *requestOperation = [(AFJSONRequestOperation *) [self alloc] initWithRequest:urlRequest];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        if (success)
+        {
             success(operation.request, operation.response, responseObject);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
-            failure(operation.request, operation.response, error, [(AFJSONRequestOperation *)operation responseJSON]);
+    }                                       failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if (failure)
+        {
+            failure(operation.request, operation.response, error, [(AFJSONRequestOperation *) operation responseJSON]);
         }
     }];
 
@@ -63,21 +69,27 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 }
 
 
-- (id)responseJSON {
+- (id)responseJSON
+{
     [self.lock lock];
-    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError) {
+    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError)
+    {
         NSError *error = nil;
 
         // Workaround for behavior of Rails to return a single space for `head :ok` (a workaround for a bug in Safari), which is not interpreted as valid input by NSJSONSerialization.
         // See https://github.com/rails/rails/issues/1742
-        if (self.responseString && ![self.responseString isEqualToString:@" "]) {
+        if (self.responseString && ![self.responseString isEqualToString:@" "])
+        {
             // Workaround for a bug in NSJSONSerialization when Unicode character escape codes are used instead of the actual character
             // See http://stackoverflow.com/a/12843465/157142
             NSData *data = [self.responseString dataUsingEncoding:NSUTF8StringEncoding];
 
-            if (data) {
+            if (data)
+            {
                 self.responseJSON = [NSJSONSerialization JSONObjectWithData:data options:self.JSONReadingOptions error:&error];
-            } else {
+            }
+            else
+            {
                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
                 [userInfo setValue:@"Operation responseData failed decoding as a UTF-8 string" forKey:NSLocalizedDescriptionKey];
                 [userInfo setValue:[NSString stringWithFormat:@"Could not decode string: %@", self.responseString] forKey:NSLocalizedFailureReasonErrorKey];
@@ -92,21 +104,27 @@ static dispatch_queue_t json_request_operation_processing_queue() {
     return _responseJSON;
 }
 
-- (NSError *)error {
-    if (_JSONError) {
+- (NSError *)error
+{
+    if (_JSONError)
+    {
         return _JSONError;
-    } else {
+    }
+    else
+    {
         return [super error];
     }
 }
 
 #pragma mark - AFHTTPRequestOperation
 
-+ (NSSet *)acceptableContentTypes {
++ (NSSet *)acceptableContentTypes
+{
     return [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
 }
 
-+ (BOOL)canProcessRequest:(NSURLRequest *)request {
++ (BOOL)canProcessRequest:(NSURLRequest *)request
+{
     return [[[request URL] pathExtension] isEqualToString:@"json"] || [super canProcessRequest:request];
 }
 
@@ -117,26 +135,40 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 #pragma clang diagnostic ignored "-Wgnu"
 
-    self.completionBlock = ^ {
-        if (self.error) {
-            if (failure) {
-                dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
+    self.completionBlock = ^
+    {
+        if (self.error)
+        {
+            if (failure)
+            {
+                dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^
+                {
                     failure(self, self.error);
                 });
             }
-        } else {
-            dispatch_async(json_request_operation_processing_queue(), ^{
+        }
+        else
+        {
+            dispatch_async(json_request_operation_processing_queue(), ^
+            {
                 id JSON = self.responseJSON;
 
-                if (self.error) {
-                    if (failure) {
-                        dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
+                if (self.error)
+                {
+                    if (failure)
+                    {
+                        dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^
+                        {
                             failure(self, self.error);
                         });
                     }
-                } else {
-                    if (success) {
-                        dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^{
+                }
+                else
+                {
+                    if (success)
+                    {
+                        dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^
+                        {
                             success(self, JSON);
                         });
                     }

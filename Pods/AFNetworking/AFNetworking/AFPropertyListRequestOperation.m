@@ -22,10 +22,12 @@
 
 #import "AFPropertyListRequestOperation.h"
 
-static dispatch_queue_t property_list_request_operation_processing_queue() {
+static dispatch_queue_t property_list_request_operation_processing_queue()
+{
     static dispatch_queue_t af_property_list_request_operation_processing_queue;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         af_property_list_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.property-list-request.processing", DISPATCH_QUEUE_CONCURRENT);
     });
 
@@ -33,9 +35,9 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 }
 
 @interface AFPropertyListRequestOperation ()
-@property (readwrite, nonatomic) id responsePropertyList;
-@property (readwrite, nonatomic, assign) NSPropertyListFormat propertyListFormat;
-@property (readwrite, nonatomic) NSError *propertyListError;
+@property(readwrite, nonatomic) id responsePropertyList;
+@property(readwrite, nonatomic, assign) NSPropertyListFormat propertyListFormat;
+@property(readwrite, nonatomic) NSError *propertyListError;
 @end
 
 @implementation AFPropertyListRequestOperation
@@ -45,26 +47,32 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 @synthesize propertyListError = _propertyListError;
 
 + (instancetype)propertyListRequestOperationWithRequest:(NSURLRequest *)request
-												success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id propertyList))success
-												failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id propertyList))failure
+                                                success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id propertyList))success
+                                                failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id propertyList))failure
 {
-    AFPropertyListRequestOperation *requestOperation = [(AFPropertyListRequestOperation *)[self alloc] initWithRequest:request];
-    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success) {
+    AFPropertyListRequestOperation *requestOperation = [(AFPropertyListRequestOperation *) [self alloc] initWithRequest:request];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        if (success)
+        {
             success(operation.request, operation.response, responseObject);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
-            failure(operation.request, operation.response, error, [(AFPropertyListRequestOperation *)operation responsePropertyList]);
+    }                                       failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if (failure)
+        {
+            failure(operation.request, operation.response, error, [(AFPropertyListRequestOperation *) operation responsePropertyList]);
         }
     }];
 
     return requestOperation;
 }
 
-- (id)initWithRequest:(NSURLRequest *)urlRequest {
+- (id)initWithRequest:(NSURLRequest *)urlRequest
+{
     self = [super initWithRequest:urlRequest];
-    if (!self) {
+    if (!self)
+    {
         return nil;
     }
 
@@ -74,8 +82,10 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 }
 
 
-- (id)responsePropertyList {
-    if (!_responsePropertyList && [self.responseData length] > 0 && [self isFinished]) {
+- (id)responsePropertyList
+{
+    if (!_responsePropertyList && [self.responseData length] > 0 && [self isFinished])
+    {
         NSPropertyListFormat format;
         NSError *error = nil;
         self.responsePropertyList = [NSPropertyListSerialization propertyListWithData:self.responseData options:self.propertyListReadOptions format:&format error:&error];
@@ -86,21 +96,27 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
     return _responsePropertyList;
 }
 
-- (NSError *)error {
-    if (_propertyListError) {
+- (NSError *)error
+{
+    if (_propertyListError)
+    {
         return _propertyListError;
-    } else {
+    }
+    else
+    {
         return [super error];
     }
 }
 
 #pragma mark - AFHTTPRequestOperation
 
-+ (NSSet *)acceptableContentTypes {
++ (NSSet *)acceptableContentTypes
+{
     return [NSSet setWithObjects:@"application/x-plist", nil];
 }
 
-+ (BOOL)canProcessRequest:(NSURLRequest *)request {
++ (BOOL)canProcessRequest:(NSURLRequest *)request
+{
     return [[[request URL] pathExtension] isEqualToString:@"plist"] || [super canProcessRequest:request];
 }
 
@@ -110,26 +126,40 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 #pragma clang diagnostic ignored "-Wgnu"
-    self.completionBlock = ^ {
-        if (self.error) {
-            if (failure) {
-                dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
+    self.completionBlock = ^
+    {
+        if (self.error)
+        {
+            if (failure)
+            {
+                dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^
+                {
                     failure(self, self.error);
                 });
             }
-        } else {
-            dispatch_async(property_list_request_operation_processing_queue(), ^(void) {
+        }
+        else
+        {
+            dispatch_async(property_list_request_operation_processing_queue(), ^(void)
+            {
                 id propertyList = self.responsePropertyList;
 
-                if (self.propertyListError) {
-                    if (failure) {
-                        dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
+                if (self.propertyListError)
+                {
+                    if (failure)
+                    {
+                        dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^
+                        {
                             failure(self, self.error);
                         });
                     }
-                } else {
-                    if (success) {
-                        dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^{
+                }
+                else
+                {
+                    if (success)
+                    {
+                        dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^
+                        {
                             success(self, propertyList);
                         });
                     }

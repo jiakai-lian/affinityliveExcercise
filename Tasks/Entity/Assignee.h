@@ -10,10 +10,10 @@
 
 @interface Assignee : JSONModel
 
-@property (nonatomic, copy) NSString * email;
-@property (nonatomic, copy) NSString<Optional> * firstname;
-@property (nonatomic, copy) NSString<Index> * id;
-@property (nonatomic, copy) NSString<Optional> * surname;
+@property(nonatomic, copy) NSString *email;
+@property(nonatomic, copy) NSString <Optional> *firstname;
+@property(nonatomic, copy) NSString <Index> *id;
+@property(nonatomic, copy) NSString <Optional> *surname;
 
 - (NSString *)fullName;
 

@@ -10,7 +10,8 @@
 
 @interface JSONModel (ArrayOfModelsFromString)
 
-+(NSMutableArray*)arrayOfModelsFromString:(NSString*)jsonArrayString;
-+(NSMutableArray*)arrayOfModelsFromString:(NSString*)jsonArrayString error:(NSError**)err;
++ (NSMutableArray *)arrayOfModelsFromString:(NSString *)jsonArrayString;
+
++ (NSMutableArray *)arrayOfModelsFromString:(NSString *)jsonArrayString error:(NSError **)err;
 
 @end

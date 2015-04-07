@@ -10,19 +10,22 @@
 #import "PDKeychainBindings.h"
 
 
-@interface PDKeychainBindingsController : NSObject {
+@interface PDKeychainBindingsController : NSObject
+{
 @private
     PDKeychainBindings *_keychainBindings;
     NSMutableDictionary *_valueBuffer;
 }
 
 + (PDKeychainBindingsController *)sharedKeychainBindingsController;
-- (PDKeychainBindings *) keychainBindings;
+
+- (PDKeychainBindings *)keychainBindings;
 
 - (id)values;    // accessor object for PDKeychainBindings values. This property is observable using key-value observing.
 
-- (NSString*)stringForKey:(NSString*)key;
-- (BOOL)storeString:(NSString*)string forKey:(NSString*)key;
+- (NSString *)stringForKey:(NSString *)key;
+
+- (BOOL)storeString:(NSString *)string forKey:(NSString *)key;
 
 @end
 

@@ -194,15 +194,15 @@
 		3E29A05B1AD2C9E2006D76F4 = {
 			isa = PBXGroup;
 			children = (
+				3E29A0661AD2C9E2006D76F4 /* AffinityLiveExercise */,
+				3E29A0801AD2C9E2006D76F4 /* AffinityLiveExerciseTests */,
 				3E29A0E71AD2CA77006D76F4 /* Common */,
+				0BF94B7294D9724C216B1971 /* Frameworks */,
+				BA67EFE19AA7204AD7C45C42 /* Pods */,
+				3E29A0651AD2C9E2006D76F4 /* Products */,
 				3E29A08D1AD2CA70006D76F4 /* Service */,
 				3E29A0911AD2CA70006D76F4 /* Tasks */,
 				3E29A0A41AD2CA70006D76F4 /* Yammer */,
-				3E29A0661AD2C9E2006D76F4 /* AffinityLiveExercise */,
-				3E29A0801AD2C9E2006D76F4 /* AffinityLiveExerciseTests */,
-				3E29A0651AD2C9E2006D76F4 /* Products */,
-				BA67EFE19AA7204AD7C45C42 /* Pods */,
-				0BF94B7294D9724C216B1971 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

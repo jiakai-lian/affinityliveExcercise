@@ -41,7 +41,7 @@
 /**
  An object deserialized from a plist constructed using the response data.
  */
-@property (readonly, nonatomic) id responsePropertyList;
+@property(readonly, nonatomic) id responsePropertyList;
 
 ///--------------------------------------
 /// @name Managing Property List Behavior
@@ -50,7 +50,7 @@
 /**
  One of the `NSPropertyListMutabilityOptions` options, specifying the mutability of objects deserialized from the property list. By default, this is `NSPropertyListImmutable`.
  */
-@property (nonatomic, assign) NSPropertyListReadOptions propertyListReadOptions;
+@property(nonatomic, assign) NSPropertyListReadOptions propertyListReadOptions;
 
 /**
  Creates and returns an `AFPropertyListRequestOperation` object and sets the specified success and failure callbacks.
@@ -62,7 +62,7 @@
  @return A new property list request operation
  */
 + (instancetype)propertyListRequestOperationWithRequest:(NSURLRequest *)urlRequest
-												success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id propertyList))success
-												failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id propertyList))failure;
+                                                success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id propertyList))success
+                                                failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id propertyList))failure;
 
 @end

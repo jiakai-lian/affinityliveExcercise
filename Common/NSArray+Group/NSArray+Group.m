@@ -12,12 +12,15 @@
 @implementation NSArray (Group)
 
 
--(NSDictionary *)groupUsingBlock:(id<NSCopying> (^)(id obj))block {
+- (NSDictionary *)groupUsingBlock:(id <NSCopying> (^)(id obj))block
+{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    
-    for (id obj in self) {
-        id<NSCopying> key = block(obj);
-        if (! dictionary[key]) {
+
+    for (id obj in self)
+    {
+        id <NSCopying> key = block(obj);
+        if (!dictionary[key])
+        {
             NSMutableArray *arr = [NSMutableArray array];
             dictionary[key] = arr;
         }
@@ -26,12 +29,15 @@
     return [dictionary copy];
 }
 
--(OrderedDictionary *)orderedDictionaryUsingBlock:(id<NSCopying> (^)(id obj))block {
+- (OrderedDictionary *)orderedDictionaryUsingBlock:(id <NSCopying> (^)(id obj))block
+{
     MutableOrderedDictionary *dictionary = [[MutableOrderedDictionary alloc] init];
-    
-    for (id obj in self) {
-        id<NSCopying> key = block(obj);
-        if (! [dictionary objectForKey:key]) {
+
+    for (id obj in self)
+    {
+        id <NSCopying> key = block(obj);
+        if (![dictionary objectForKey:key])
+        {
             NSMutableArray *arr = [NSMutableArray array];
             [dictionary insertObject:arr forKey:key atIndex:dictionary.count];
         }
@@ -41,8 +47,10 @@
 }
 
 
--(NSDictionary *)groupByKeyPath:(NSString *) keyPath {
-    return [self groupUsingBlock:^id<NSCopying>(id obj) {
+- (NSDictionary *)groupByKeyPath:(NSString *)keyPath
+{
+    return [self groupUsingBlock:^id <NSCopying>(id obj)
+    {
         return [obj valueForKeyPath:keyPath];
     }];
 }

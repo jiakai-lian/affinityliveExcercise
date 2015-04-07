@@ -74,9 +74,10 @@
  */
 
 #ifdef _SYSTEMCONFIGURATION_H
-typedef enum {
-    AFNetworkReachabilityStatusUnknown          = -1,
-    AFNetworkReachabilityStatusNotReachable     = 0,
+typedef enum
+{
+    AFNetworkReachabilityStatusUnknown = -1,
+    AFNetworkReachabilityStatusNotReachable = 0,
     AFNetworkReachabilityStatusReachableViaWWAN = 1,
     AFNetworkReachabilityStatusReachableViaWiFi = 2,
 } AFNetworkReachabilityStatus;
@@ -92,7 +93,8 @@ typedef enum {
 #endif
 #endif
 
-typedef enum {
+typedef enum
+{
     AFFormURLParameterEncoding,
     AFJSONParameterEncoding,
     AFPropertyListParameterEncoding,
@@ -110,24 +112,24 @@ typedef enum {
 /**
  The url used as the base for paths specified in methods such as `getPath:parameters:success:failure`
  */
-@property (readonly, nonatomic, strong) NSURL *baseURL;
+@property(readonly, nonatomic, strong) NSURL *baseURL;
 
 /**
  The string encoding used in constructing url requests. This is `NSUTF8StringEncoding` by default.
  */
-@property (nonatomic, assign) NSStringEncoding stringEncoding;
+@property(nonatomic, assign) NSStringEncoding stringEncoding;
 
 /**
  The `AFHTTPClientParameterEncoding` value corresponding to how parameters are encoded into a request body for request methods other than `GET`, `HEAD` or `DELETE`. This is `AFFormURLParameterEncoding` by default.
 
  @warning Some nested parameter structures, such as a keyed array of hashes containing inconsistent keys (i.e. `@{@"": @[@{@"a" : @(1)}, @{@"b" : @(2)}]}`), cannot be unambiguously represented in query strings. It is strongly recommended that an unambiguous encoding, such as `AFJSONParameterEncoding`, is used when posting complicated or nondeterministic parameter structures.
  */
-@property (nonatomic, assign) AFHTTPClientParameterEncoding parameterEncoding;
+@property(nonatomic, assign) AFHTTPClientParameterEncoding parameterEncoding;
 
 /**
  The operation queue which manages operations enqueued by the HTTP client.
  */
-@property (readonly, nonatomic, strong) NSOperationQueue *operationQueue;
+@property(readonly, nonatomic, strong) NSOperationQueue *operationQueue;
 
 /**
  The reachability status from the device to the current `baseURL` of the `AFHTTPClient`.
@@ -135,20 +137,20 @@ typedef enum {
  @warning This property requires the `SystemConfiguration` framework. Add it in the active target's "Link Binary With Library" build phase, and add `#import <SystemConfiguration/SystemConfiguration.h>` to the header prefix of the project (`Prefix.pch`).
  */
 #ifdef _SYSTEMCONFIGURATION_H
-@property (readonly, nonatomic, assign) AFNetworkReachabilityStatus networkReachabilityStatus;
+@property(readonly, nonatomic, assign) AFNetworkReachabilityStatus networkReachabilityStatus;
 #endif
 
 /**
  Default SSL pinning mode for each `AFHTTPRequestOperation` created by `HTTPRequestOperationWithRequest:success:failure:`.
  */
-@property (nonatomic, assign) AFURLConnectionOperationSSLPinningMode defaultSSLPinningMode;
+@property(nonatomic, assign) AFURLConnectionOperationSSLPinningMode defaultSSLPinningMode;
 
 /**
  Whether each `AFHTTPRequestOperation` created by `HTTPRequestOperationWithRequest:success:failure:` should accept an invalid SSL certificate. 
  
  If `_AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_` is set, this property defaults to `YES` for backwards compatibility. Otherwise, this property defaults to `NO`.
  */
-@property (nonatomic, assign) BOOL allowsInvalidSSLCertificate;
+@property(nonatomic, assign) BOOL allowsInvalidSSLCertificate;
 
 ///---------------------------------------------
 /// @name Creating and Initializing HTTP Clients
@@ -186,7 +188,9 @@ typedef enum {
  @warning This method requires the `SystemConfiguration` framework. Add it in the active target's "Link Binary With Library" build phase, and add `#import <SystemConfiguration/SystemConfiguration.h>` to the header prefix of the project (`Prefix.pch`).
  */
 #ifdef _SYSTEMCONFIGURATION_H
+
 - (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block;
+
 #endif
 
 ///-------------------------------
@@ -520,7 +524,7 @@ typedef enum {
 
  @return A percent-escaped query string
  */
-extern NSString * AFQueryStringFromParametersWithEncoding(NSDictionary *parameters, NSStringEncoding encoding);
+extern NSString *AFQueryStringFromParametersWithEncoding(NSDictionary *parameters, NSStringEncoding encoding);
 
 ///--------------------
 /// @name Notifications
@@ -533,8 +537,8 @@ extern NSString * AFQueryStringFromParametersWithEncoding(NSDictionary *paramete
  @warning In order for network reachability to be monitored, include the `SystemConfiguration` framework in the active target's "Link Binary With Library" build phase, and add `#import <SystemConfiguration/SystemConfiguration.h>` to the header prefix of the project (`Prefix.pch`).
  */
 #ifdef _SYSTEMCONFIGURATION_H
-extern NSString * const AFNetworkingReachabilityDidChangeNotification;
-extern NSString * const AFNetworkingReachabilityNotificationStatusItem;
+extern NSString *const AFNetworkingReachabilityDidChangeNotification;
+extern NSString *const AFNetworkingReachabilityNotificationStatusItem;
 #endif
 
 #pragma mark -

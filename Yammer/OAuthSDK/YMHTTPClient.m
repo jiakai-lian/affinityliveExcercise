@@ -12,8 +12,8 @@
 
 @interface YMHTTPClient ()
 
-@property (nonatomic, strong, readonly) AFHTTPClient *httpClient;
-@property (nonatomic, strong) NSURL *baseURL;
+@property(nonatomic, strong, readonly) AFHTTPClient *httpClient;
+@property(nonatomic, strong) NSURL *baseURL;
 
 @end
 
@@ -42,38 +42,43 @@
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
     self = [super init];
-    
-    if (self) {
+
+    if (self)
+    {
         _baseURL = baseURL;
     }
-    
+
     return self;
 }
 
 - (id)initWithBaseURL:(NSURL *)baseURL authToken:(NSString *)authToken
 {
     self = [self initWithBaseURL:baseURL];
-    
-    if (self) {
+
+    if (self)
+    {
         _authToken = authToken;
     }
-    
+
     return self;
 }
 
 - (AFHTTPClient *)httpClient
 {
     if (_httpClient)
+    {
         return _httpClient;
-    
+    }
+
     _httpClient = [[AFHTTPClient alloc] initWithBaseURL:self.baseURL];
     [_httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [_httpClient setDefaultHeader:@"Accept" value:@"application/json"];
     [_httpClient setDefaultHeader:@"User-Agent" value:[self userAgent]];
-    if (self.authToken) {
+    if (self.authToken)
+    {
         [self updateAuthToken];
     }
-    
+
     return _httpClient;
 }
 
@@ -82,17 +87,17 @@
 {
     //Yammer/{app_version} ({Device type, eg: iPhone/iPad/iPod}; {iOS version}; {locale}; {language})
     NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-    
+
     // Device Name (e.g. iPhone2,1 or iPad3,1 or x86_64 for simulator)
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    
+
     NSString *systemName = [[UIDevice currentDevice] systemName];
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     NSString *localeName = [[NSLocale currentLocale] localeIdentifier];
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
+
     NSString *userAgent = [NSString stringWithFormat:@"Yammer/%@ (%@; %@ %@; %@; %@)", appVersion, deviceModel, systemName, systemVersion, localeName, language];
     return userAgent;
 }
@@ -103,10 +108,12 @@
         failure:(void (^)(NSError *error))failure
 {
     NSLog(@"GET %@", path);
-    [self.httpClient getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.httpClient getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
 
         success(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }                failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
         failure(error);
     }];
 }
@@ -118,16 +125,18 @@
 {
     NSLog(@"POST %@", path);
     [self.httpClient postPath:path
-               parameters:parameters
-                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                      success(responseObject);
-                  }
-                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                      // Forward the error
-                      NSHTTPURLResponse *response = [operation response];
-                      NSInteger statusCode = [response statusCode];
-                      failure(statusCode, error);
-                  }];
+                   parameters:parameters
+                      success:^(AFHTTPRequestOperation *operation, id responseObject)
+                      {
+                          success(responseObject);
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                      {
+                          // Forward the error
+                          NSHTTPURLResponse *response = [operation response];
+                          NSInteger statusCode = [response statusCode];
+                          failure(statusCode, error);
+                      }];
 }
 
 @end

@@ -8,11 +8,13 @@
 
 #import "NSArray+JSONModelExtensions.h"
 #import <JSONModel.h>
+
 @implementation NSArray (JSONModelExtensions)
 
-- (NSString*)toJSONString {
-    NSMutableArray* jsonObjects = [NSMutableArray new];
-    for ( id obj in self )
+- (NSString *)toJSONString
+{
+    NSMutableArray *jsonObjects = [NSMutableArray new];
+    for (id obj in self)
         [jsonObjects addObject:[obj toJSONString]];
     return [NSString stringWithFormat:@"[%@]", [jsonObjects componentsJoinedByString:@","]];
 }

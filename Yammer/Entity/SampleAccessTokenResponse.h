@@ -10,5 +10,5 @@
 #import "AccessTokenResponse.h"
 
 @interface SampleAccessTokenResponse : NSObject
-+ (AccessTokenResponse *) GetSampleJSONResponse;
++ (AccessTokenResponse *)GetSampleJSONResponse;
 @end

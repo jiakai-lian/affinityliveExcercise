@@ -1,6 +1,5 @@
 {
-    "user":
-    {
+    "user": {
         "timezone": "Hawaii",
         "interests": null,
         "type": "user",
@@ -22,11 +21,11 @@
                 "username": ""
             },
             "email_addresses": [
-                                {
-                                "type": "primary",
-                                "address": "test@yammer-inc.com"
-                                }
-                                ]
+                {
+                    "type": "primary",
+                    "address": "test@yammer-inc.com"
+                }
+            ]
         },
         "location": null,
         "previous_companies": [],
@@ -44,8 +43,8 @@
         "external_urls": [],
         "name": "clientappstest",
         "network_domains": [
-                            "yammer-inc.com"
-                            ],
+            "yammer-inc.com"
+        ],
         "network_name": "Yammer",
         "significant_other": null,
         "id": 1014216,

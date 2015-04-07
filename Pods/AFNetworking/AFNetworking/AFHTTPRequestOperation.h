@@ -35,7 +35,7 @@
 /**
  The last HTTP response received by the operation's connection.
  */
-@property (readonly, nonatomic, strong) NSHTTPURLResponse *response;
+@property(readonly, nonatomic, strong) NSHTTPURLResponse *response;
 
 ///----------------------------------------------------------
 /// @name Managing And Checking For Acceptable HTTP Responses
@@ -44,22 +44,22 @@
 /**
  A Boolean value that corresponds to whether the status code of the response is within the specified set of acceptable status codes. Returns `YES` if `acceptableStatusCodes` is `nil`.
  */
-@property (nonatomic, readonly) BOOL hasAcceptableStatusCode;
+@property(nonatomic, readonly) BOOL hasAcceptableStatusCode;
 
 /**
  A Boolean value that corresponds to whether the MIME type of the response is among the specified set of acceptable content types. Returns `YES` if `acceptableContentTypes` is `nil`.
  */
-@property (nonatomic, readonly) BOOL hasAcceptableContentType;
+@property(nonatomic, readonly) BOOL hasAcceptableContentType;
 
 /**
  The callback dispatch queue on success. If `NULL` (default), the main queue is used.
  */
-@property (nonatomic, assign) dispatch_queue_t successCallbackQueue;
+@property(nonatomic, assign) dispatch_queue_t successCallbackQueue;
 
 /**
  The callback dispatch queue on failure. If `NULL` (default), the main queue is used.
  */
-@property (nonatomic, assign) dispatch_queue_t failureCallbackQueue;
+@property(nonatomic, assign) dispatch_queue_t failureCallbackQueue;
 
 ///------------------------------------------------------------
 /// @name Managing Acceptable HTTP Status Codes & Content Types
@@ -129,5 +129,5 @@
 /**
  Returns a set of MIME types detected in an HTTP `Accept` or `Content-Type` header.
  */
-extern NSSet * AFContentTypesFromHTTPHeader(NSString *string);
+extern NSSet *AFContentTypesFromHTTPHeader(NSString *string);
 

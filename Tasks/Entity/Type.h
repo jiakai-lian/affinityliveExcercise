@@ -10,7 +10,7 @@
 
 @interface Type : JSONModel
 
-@property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString<Index> * id;
+@property(nonatomic, copy) NSString *title;
+@property(nonatomic, copy) NSString <Index> *id;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaskHandlerProtocol.h"
 #import "AuthTokenHandlerProtocol.h"
+
 @interface YammerFeedViewController : UIViewController <TaskHandlerProtocol, AuthTokenHandlerProtocol>
 
 @end

@@ -39,6 +39,7 @@
 
 
 #import <Availability.h>
+
 #if !__has_feature(objc_arc)
 #error This class requires automatic reference counting
 #endif
@@ -46,7 +47,7 @@
 
 @implementation OrderedDictionary
 {
-    @protected
+@protected
     NSArray *_values;
     NSOrderedSet *_keys;
 }
@@ -77,7 +78,7 @@
     {
         _values = [objects copy];
         _keys = [NSOrderedSet orderedSetWithArray:keys];
-        
+
         NSParameterAssert([_keys count] == [_values count]);
     }
     return self;
@@ -89,7 +90,7 @@
     {
         _values = [[NSArray alloc] initWithObjects:objects count:count];
         _keys = [[NSOrderedSet alloc] initWithObjects:keys count:count];
-        
+
         NSParameterAssert([_values count] == count);
         NSParameterAssert([_keys count] == count);
     }
@@ -142,7 +143,8 @@
     return [_keys count];
 }
 
-- (NSUInteger)indexOfKey:(id)key {
+- (NSUInteger)indexOfKey:(id)key
+{
     return [_keys indexOfObject:key];
 }
 
@@ -154,7 +156,7 @@
         return _values[index];
     }
     return nil;
-   
+
 }
 
 - (NSEnumerator *)keyEnumerator
@@ -179,7 +181,8 @@
 
 - (void)enumerateKeysAndObjectsWithIndexUsingBlock:(void (^)(id key, id obj, NSUInteger idx, BOOL *stop))block
 {
-    [_keys enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop) {
+    [_keys enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop)
+    {
         block(key, self->_values[idx], idx, stop);
     }];
 }
@@ -196,7 +199,7 @@
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index
 {
-  return _values[index];
+    return _values[index];
 }
 
 @end
@@ -209,7 +212,7 @@
 
 + (instancetype)dictionaryWithCapacity:(NSUInteger)count
 {
-    return [(MutableOrderedDictionary *)[self alloc] initWithCapacity:count];
+    return [(MutableOrderedDictionary *) [self alloc] initWithCapacity:count];
 }
 
 - (instancetype)initWithObjects:(const __unsafe_unretained id [])objects forKeys:(const __unsafe_unretained id <NSCopying> [])keys count:(NSUInteger)count
@@ -254,7 +257,8 @@
 
 - (void)addEntriesFromDictionary:(NSDictionary *)otherDictionary
 {
-    [otherDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, __unused BOOL *stop) {
+    [otherDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, __unused BOOL *stop)
+    {
         [self setObject:obj forKey:key];
     }];
 }

@@ -10,7 +10,7 @@
 #import "NSDictionary+URLEncoding.h"
 #import "Common.h"
 
-@interface NetworkDataService()
+@interface NetworkDataService ()
 
 @property(nonatomic, strong) NSURLConnection *connection;
 @property(nonatomic, strong) NSMutableData *responseData;
@@ -64,9 +64,9 @@ static NSString *const GET = @"get";
 {
     // inform error
     NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-    
+            [error localizedDescription],
+            [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+
     if (self.failureBlock)
     {
         self.failureBlock(error);
@@ -76,19 +76,19 @@ static NSString *const GET = @"get";
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn
 {
     NSLog(@"Succeeded! Received %lu bytes of data", (unsigned long) [_responseData length]);
-    
+
     NSString *json = [[NSString alloc] initWithData:_responseData encoding:NSASCIIStringEncoding];
     NSLog(@"data = %@", json);
-    
+
     self.data = json;
-    
+
     _responseData = nil;
-    
+
     if (self.successBlock)
     {
         self.successBlock(self.data);
     }
-    
+
 }
 
 
@@ -97,64 +97,64 @@ static NSString *const GET = @"get";
 
 - (NSData *)sendRequest:(NSString *)url HttpMethod:(NSString *)httpMethod Data:(NSData *)data
 {
-    
+
     self.responseData = [NSMutableData dataWithCapacity:0];//clear the response first
-    
+
     url = [url stringByAppendingString:[self createParametersString]];
-    
+
     LOG(@"URL = %@", url);
-    
-    
+
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
-                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                        timeoutInterval:TIMEOUT];
-    
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:TIMEOUT];
+
     [request setHTTPMethod:httpMethod];
-    
+
     [request addValue:@"application/json" forHTTPHeaderField:@"content-type"];
-    
+
 //    request = [self appendAuthentication:request];
-    
-    
+
+
     //[request setHTTPBody:data];
-    
+
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    
+
+
     if (!self.connection)
     {
         // Release the receivedData object.
         _responseData = nil;
-        
+
         // Inform the user that the connection failed.
     }
-    
+
     return nil;
 }
 
 - (NSMutableURLRequest *)appendAuthentication:(NSMutableURLRequest *)request
 {
-    NSString *authStr = [NSString stringWithFormat:@"%@:%@", CLIENT_ID , CLIENT_SECRET];
+    NSString *authStr = [NSString stringWithFormat:@"%@:%@", CLIENT_ID, CLIENT_SECRET];
     NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
-    
+
     LOG(@"authValue = %@", authValue);
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-    
+
     return request;
 }
 
 - (NSString *)createParametersString
 {
-    NSDictionary* parameters = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                @"RedWine", @"password",
-                                @"sample_user_1", @"username",
-                                @"client_credentials", @"grant_type",
-                                nil];
-    
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                             @"RedWine", @"password",
+                                                             @"sample_user_1", @"username",
+                                                             @"client_credentials", @"grant_type",
+                                                             nil];
+
     return [parameters urlEncodedString];
-    
-    
+
+
 }
 
 @end

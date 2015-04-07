@@ -11,5 +11,5 @@
 
 @interface MessageResponse : JSONModel
 
-@property (nonatomic, copy) NSArray<Message> * messages;
+@property(nonatomic, copy) NSArray <Message> *messages;
 @end

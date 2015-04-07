@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @class OrderedDictionary;
+
 @interface NSArray (Group)
 
--(NSDictionary *)groupUsingBlock:(id<NSCopying> (^)(id obj))block;
--(OrderedDictionary *)orderedDictionaryUsingBlock:(id<NSCopying> (^)(id obj))block;
--(NSDictionary *)groupByKeyPath:(NSString *) keyPath;
+- (NSDictionary *)groupUsingBlock:(id <NSCopying> (^)(id obj))block;
+
+- (OrderedDictionary *)orderedDictionaryUsingBlock:(id <NSCopying> (^)(id obj))block;
+
+- (NSDictionary *)groupByKeyPath:(NSString *)keyPath;
 @end

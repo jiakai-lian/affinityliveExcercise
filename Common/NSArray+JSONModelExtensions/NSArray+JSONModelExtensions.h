@@ -10,6 +10,6 @@
 
 @interface NSArray (JSONModelExtensions)
 
-- (NSString*)toJSONString;
+- (NSString *)toJSONString;
 
 @end

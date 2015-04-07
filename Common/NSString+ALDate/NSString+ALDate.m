@@ -12,21 +12,21 @@
 
 static NSString const *DATETIME_FORMAT = @"dd'/'MM'/'yyyy' 'HH':'mm' 'z";
 
-- (NSDate *) unixTimeStamp
+- (NSDate *)unixTimeStamp
 {
     return [NSDate dateWithTimeIntervalSince1970:[self doubleValue]];
 }
 
-- (NSString *) formatedUnixTimeStampString
+- (NSString *)formatedUnixTimeStampString
 {
     static NSDateFormatter *dateFormatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
-                  {
-                      dateFormatter = [[NSDateFormatter alloc] init];
-                      [dateFormatter setDateFormat:DATETIME_FORMAT.copy];
-                  });
-    
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:DATETIME_FORMAT.copy];
+    });
+
     return [dateFormatter stringFromDate:[self unixTimeStamp]];
 }
 

@@ -10,5 +10,6 @@
 
 @interface TPKeyboardAvoidingTableView : UITableView <UITextFieldDelegate, UITextViewDelegate>
 - (BOOL)focusNextTextField;
+
 - (void)scrollToActiveTextField;
 @end

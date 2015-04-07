@@ -9,16 +9,20 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PDKeychainBindings : NSObject {
+@interface PDKeychainBindings : NSObject
+{
 @private
-    
+
 }
 
 + (PDKeychainBindings *)sharedKeychainBindings;
 
 - (id)objectForKey:(NSString *)defaultName;
+
 - (void)setObject:(NSString *)value forKey:(NSString *)defaultName;
+
 - (void)setString:(NSString *)value forKey:(NSString *)defaultName;
+
 - (void)removeObjectForKey:(NSString *)defaultName;
 
 - (NSString *)stringForKey:(NSString *)defaultName;

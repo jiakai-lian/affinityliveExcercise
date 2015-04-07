@@ -11,6 +11,6 @@
 
 @interface TasksResponse : JSONModel
 
-@property (nonatomic, copy) NSArray<Task> * response;
+@property(nonatomic, copy) NSArray <Task> *response;
 
 @end

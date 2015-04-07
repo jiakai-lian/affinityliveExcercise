@@ -10,8 +10,8 @@
 
 @interface Body : JSONModel
 
-@property (nonatomic, copy) NSString * parsed;
-@property (nonatomic, copy) NSString * plain;
-@property (nonatomic, copy) NSString * rich;
+@property(nonatomic, copy) NSString *parsed;
+@property(nonatomic, copy) NSString *plain;
+@property(nonatomic, copy) NSString *rich;
 
 @end

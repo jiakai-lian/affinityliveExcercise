@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TaskTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
-@property (weak, nonatomic) IBOutlet UILabel *labelDateStarted;
-@property (weak, nonatomic) IBOutlet UILabel *labelDateDue;
+@property(weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property(weak, nonatomic) IBOutlet UILabel *labelDateStarted;
+@property(weak, nonatomic) IBOutlet UILabel *labelDateDue;
 
 @end

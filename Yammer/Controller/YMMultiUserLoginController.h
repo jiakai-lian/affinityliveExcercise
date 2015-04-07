@@ -11,16 +11,18 @@
 
 @protocol AccessTokenResponse;
 
-static NSString * const YAMMER_KEYCHAIN_MULTI_USER_AUTH_TOKEN_KEY = @"YammerKeychainMultiUserAuthTokenKey";
+static NSString *const YAMMER_KEYCHAIN_MULTI_USER_AUTH_TOKEN_KEY = @"YammerKeychainMultiUserAuthTokenKey";
 
 @interface YMMultiUserLoginController : YMLoginController
 
 + (instancetype)sharedInstance;
 
 - (void)startLogin;
+
 - (BOOL)handleLoginRedirectFromUrl:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 
-- (NSMutableArray<AccessTokenResponse> *)storedMultiUserAuthToken;
+- (NSMutableArray <AccessTokenResponse> *)storedMultiUserAuthToken;
+
 - (void)clearMultiUserAuthToken;
 
 @end

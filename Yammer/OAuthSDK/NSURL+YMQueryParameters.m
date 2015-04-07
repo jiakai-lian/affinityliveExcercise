@@ -13,18 +13,20 @@
 - (NSDictionary *)ym_queryParameters
 {
     NSMutableDictionary *queryDict = [[NSMutableDictionary alloc] init];
-    
+
     NSArray *params = [self.query componentsSeparatedByString:@"&"];
-    for (NSString *param in params) {
+    for (NSString *param in params)
+    {
         NSArray *paramParts = [param componentsSeparatedByString:@"="];
-        
-        if (paramParts.count == 2) {
-            NSString *paramName = [self ym_stringByDecodingURLFormat: [paramParts objectAtIndex:0]];
-            NSString *paramValue = [self ym_stringByDecodingURLFormat: [paramParts objectAtIndex:1]];
+
+        if (paramParts.count == 2)
+        {
+            NSString *paramName = [self ym_stringByDecodingURLFormat:[paramParts objectAtIndex:0]];
+            NSString *paramValue = [self ym_stringByDecodingURLFormat:[paramParts objectAtIndex:1]];
             [queryDict setValue:paramValue forKey:paramName];
         }
     }
-    
+
     return queryDict;
 }
 

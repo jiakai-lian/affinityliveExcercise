@@ -10,5 +10,6 @@
 
 @interface TPKeyboardAvoidingCollectionView : UICollectionView <UITextFieldDelegate, UITextViewDelegate>
 - (BOOL)focusNextTextField;
+
 - (void)scrollToActiveTextField;
 @end

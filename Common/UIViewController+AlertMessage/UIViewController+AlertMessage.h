@@ -11,6 +11,7 @@
 @interface UIViewController (AlertMessage)
 
 - (void)showAlertMessageWithTitle:(NSString *)title andMessage:(NSString *)message;
+
 - (void)showAlertMessageWithTitle:(NSString *)title andError:(NSError *)error;
 
 @end

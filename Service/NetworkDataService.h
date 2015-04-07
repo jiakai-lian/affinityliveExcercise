@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "DataService.h"
 
-static NSString * const SERVER_URL = @"https://apitest.staging.affinitylive.com/api/tasks?";
-static NSString * const CLIENT_ID = @"0a5971f7ce@demo.staging.affinitylive.com";
-static NSString * const CLIENT_SECRET = @"eERGXMo2CMsPtuo1jDkzmp2iPhgjcTth";
+static NSString *const SERVER_URL = @"https://apitest.staging.affinitylive.com/api/tasks?";
+static NSString *const CLIENT_ID = @"0a5971f7ce@demo.staging.affinitylive.com";
+static NSString *const CLIENT_SECRET = @"eERGXMo2CMsPtuo1jDkzmp2iPhgjcTth";
 
 
-@interface NetworkDataService : NSObject<DataService>
+@interface NetworkDataService : NSObject <DataService>
 
 @end

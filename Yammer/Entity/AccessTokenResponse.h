@@ -16,7 +16,7 @@
 
 @interface AccessTokenResponse : JSONModel
 
-@property (nonatomic, strong) AccessToken* access_token;
-@property (nonatomic, strong) User* user;
+@property(nonatomic, strong) AccessToken *access_token;
+@property(nonatomic, strong) User *user;
 
 @end

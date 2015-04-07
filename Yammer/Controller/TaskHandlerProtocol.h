@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Task.h"
+
 @protocol TaskHandlerProtocol <NSObject>
 
-@property (nonatomic, copy) Task * task;
+@property(nonatomic, copy) Task *task;
 
 @end

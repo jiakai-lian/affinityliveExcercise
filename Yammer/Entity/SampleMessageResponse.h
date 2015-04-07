@@ -11,6 +11,6 @@
 
 @interface SampleMessageResponse : NSObject
 
-+ (MessageResponse *) GetSampleJSONResponse;
++ (MessageResponse *)GetSampleJSONResponse;
 
 @end

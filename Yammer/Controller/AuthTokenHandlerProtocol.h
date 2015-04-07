@@ -10,6 +10,6 @@
 
 @protocol AuthTokenHandlerProtocol <NSObject>
 
-@property (nonatomic, copy) NSString * token;
+@property(nonatomic, copy) NSString *token;
 
 @end

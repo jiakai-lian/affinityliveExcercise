@@ -11,5 +11,5 @@
 
 @interface SampleTaskResponse : NSObject
 
-+ (TasksResponse *) GetSampleJSONResponse;
++ (TasksResponse *)GetSampleJSONResponse;
 @end

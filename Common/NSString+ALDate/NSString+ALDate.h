@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (ALDate)
-- (NSDate *) unixTimeStamp;
-- (NSString *) formatedUnixTimeStampString;
+- (NSDate *)unixTimeStamp;
+
+- (NSString *)formatedUnixTimeStampString;
 @end

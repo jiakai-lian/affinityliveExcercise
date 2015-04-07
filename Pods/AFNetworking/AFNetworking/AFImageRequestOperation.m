@@ -22,10 +22,12 @@
 
 #import "AFImageRequestOperation.h"
 
-static dispatch_queue_t image_request_operation_processing_queue() {
+static dispatch_queue_t image_request_operation_processing_queue()
+{
     static dispatch_queue_t af_image_request_operation_processing_queue;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         af_image_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.image-request.processing", DISPATCH_QUEUE_CONCURRENT);
     });
 
@@ -33,37 +35,47 @@ static dispatch_queue_t image_request_operation_processing_queue() {
 }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+
 #import <CoreGraphics/CoreGraphics.h>
 
-static UIImage * AFImageWithDataAtScale(NSData *data, CGFloat scale) {
+static UIImage *AFImageWithDataAtScale(NSData *data, CGFloat scale)
+{
     UIImage *image = [[UIImage alloc] initWithData:data];
-    
+
     return [[UIImage alloc] initWithCGImage:[image CGImage] scale:scale orientation:image.imageOrientation];
 }
 
-static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *response, NSData *data, CGFloat scale) {
-    if (!data || [data length] == 0) {
+static UIImage *AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *response, NSData *data, CGFloat scale)
+{
+    if (!data || [data length] == 0)
+    {
         return nil;
     }
 
     UIImage *image = AFImageWithDataAtScale(data, scale);
-    if (image.images) {
+    if (image.images)
+    {
         return image;
     }
-    
-    CGImageRef imageRef = nil;
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
 
-    if ([response.MIMEType isEqualToString:@"image/png"]) {
-        imageRef = CGImageCreateWithPNGDataProvider(dataProvider,  NULL, true, kCGRenderingIntentDefault);
-    } else if ([response.MIMEType isEqualToString:@"image/jpeg"]) {
+    CGImageRef imageRef = nil;
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef) data);
+
+    if ([response.MIMEType isEqualToString:@"image/png"])
+    {
+        imageRef = CGImageCreateWithPNGDataProvider(dataProvider, NULL, true, kCGRenderingIntentDefault);
+    }
+    else if ([response.MIMEType isEqualToString:@"image/jpeg"])
+    {
         imageRef = CGImageCreateWithJPEGDataProvider(dataProvider, NULL, true, kCGRenderingIntentDefault);
     }
-    
-    if (!imageRef) {
+
+    if (!imageRef)
+    {
         imageRef = CGImageCreateCopy([image CGImage]);
 
-        if (!imageRef) {
+        if (!imageRef)
+        {
             CGDataProviderRelease(dataProvider);
             return image;
         }
@@ -78,12 +90,16 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
 
-    if (CGColorSpaceGetNumberOfComponents(colorSpace) == 3) {
+    if (CGColorSpaceGetNumberOfComponents(colorSpace) == 3)
+    {
         int alpha = (bitmapInfo & kCGBitmapAlphaInfoMask);
-        if (alpha == kCGImageAlphaNone) {
+        if (alpha == kCGImageAlphaNone)
+        {
             bitmapInfo &= ~kCGBitmapAlphaInfoMask;
             bitmapInfo |= kCGImageAlphaNoneSkipFirst;
-        } else if (!(alpha == kCGImageAlphaNoneSkipFirst || alpha == kCGImageAlphaNoneSkipLast)) {
+        }
+        else if (!(alpha == kCGImageAlphaNoneSkipFirst || alpha == kCGImageAlphaNoneSkipLast))
+        {
             bitmapInfo &= ~kCGBitmapAlphaInfoMask;
             bitmapInfo |= kCGImageAlphaPremultipliedFirst;
         }
@@ -93,7 +109,8 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
     CGColorSpaceRelease(colorSpace);
 
-    if (!context) {
+    if (!context)
+    {
         CGImageRelease(imageRef);
 
         return image;
@@ -107,14 +124,15 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     UIImage *inflatedImage = [[UIImage alloc] initWithCGImage:inflatedImageRef scale:scale orientation:image.imageOrientation];
     CGImageRelease(inflatedImageRef);
     CGImageRelease(imageRef);
-    
+
     return inflatedImage;
 }
+
 #endif
 
 @interface AFImageRequestOperation ()
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-@property (readwrite, nonatomic, strong) UIImage *responseImage;
+@property(readwrite, nonatomic, strong) UIImage *responseImage;
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
 @property (readwrite, nonatomic, strong) NSImage *responseImage;
 #endif
@@ -127,15 +145,19 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 #endif
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+
 + (instancetype)imageRequestOperationWithRequest:(NSURLRequest *)urlRequest
-										 success:(void (^)(UIImage *image))success
+                                         success:(void (^)(UIImage *image))success
 {
-    return [self imageRequestOperationWithRequest:urlRequest imageProcessingBlock:nil success:^(NSURLRequest __unused *request, NSHTTPURLResponse __unused *response, UIImage *image) {
-        if (success) {
+    return [self imageRequestOperationWithRequest:urlRequest imageProcessingBlock:nil success:^(NSURLRequest __unused *request, NSHTTPURLResponse __unused *response, UIImage *image)
+    {
+        if (success)
+        {
             success(image);
         }
-    } failure:nil];
+    }                                     failure:nil];
 }
+
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
 + (instancetype)imageRequestOperationWithRequest:(NSURLRequest *)urlRequest
 										 success:(void (^)(NSImage *image))success
@@ -150,31 +172,41 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+
 + (instancetype)imageRequestOperationWithRequest:(NSURLRequest *)urlRequest
-							imageProcessingBlock:(UIImage *(^)(UIImage *))imageProcessingBlock
-										 success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
-										 failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
+                            imageProcessingBlock:(UIImage *(^)(UIImage *))imageProcessingBlock
+                                         success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
+                                         failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
-    AFImageRequestOperation *requestOperation = [(AFImageRequestOperation *)[self alloc] initWithRequest:urlRequest];
-    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success) {
+    AFImageRequestOperation *requestOperation = [(AFImageRequestOperation *) [self alloc] initWithRequest:urlRequest];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        if (success)
+        {
             UIImage *image = responseObject;
-            if (imageProcessingBlock) {
-                dispatch_async(image_request_operation_processing_queue(), ^(void) {
+            if (imageProcessingBlock)
+            {
+                dispatch_async(image_request_operation_processing_queue(), ^(void)
+                {
                     UIImage *processedImage = imageProcessingBlock(image);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu"
-                    dispatch_async(operation.successCallbackQueue ?: dispatch_get_main_queue(), ^(void) {
+                    dispatch_async(operation.successCallbackQueue ?: dispatch_get_main_queue(), ^(void)
+                    {
                         success(operation.request, operation.response, processedImage);
                     });
 #pragma clang diagnostic pop
                 });
-            } else {
+            }
+            else
+            {
                 success(operation.request, operation.response, image);
             }
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
+    }                                       failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if (failure)
+        {
             failure(operation.request, operation.response, error);
         }
     }];
@@ -182,6 +214,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
     return requestOperation;
 }
+
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
 + (instancetype)imageRequestOperationWithRequest:(NSURLRequest *)urlRequest
 							imageProcessingBlock:(NSImage *(^)(NSImage *))imageProcessingBlock
@@ -214,9 +247,11 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 }
 #endif
 
-- (id)initWithRequest:(NSURLRequest *)urlRequest {
+- (id)initWithRequest:(NSURLRequest *)urlRequest
+{
     self = [super initWithRequest:urlRequest];
-    if (!self) {
+    if (!self)
+    {
         return nil;
     }
 
@@ -230,11 +265,17 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-- (UIImage *)responseImage {
-    if (!_responseImage && [self.responseData length] > 0 && [self isFinished]) {
-        if (self.automaticallyInflatesResponseImage) {
+
+- (UIImage *)responseImage
+{
+    if (!_responseImage && [self.responseData length] > 0 && [self isFinished])
+    {
+        if (self.automaticallyInflatesResponseImage)
+        {
             self.responseImage = AFInflatedImageFromResponseWithDataAtScale(self.response, self.responseData, self.imageScale);
-        } else {
+        }
+        else
+        {
             self.responseImage = AFImageWithDataAtScale(self.responseData, self.imageScale);
         }
     }
@@ -242,10 +283,12 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     return _responseImage;
 }
 
-- (void)setImageScale:(CGFloat)imageScale {
+- (void)setImageScale:(CGFloat)imageScale
+{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wfloat-equal"
-    if (imageScale == _imageScale) {
+    if (imageScale == _imageScale)
+    {
         return;
     }
 #pragma clang diagnostic pop
@@ -254,6 +297,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
     self.responseImage = nil;
 }
+
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
 - (NSImage *)responseImage {
     if (!_responseImage && [self.responseData length] > 0 && [self isFinished]) {
@@ -269,14 +313,17 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
 #pragma mark - AFHTTPRequestOperation
 
-+ (NSSet *)acceptableContentTypes {
++ (NSSet *)acceptableContentTypes
+{
     return [NSSet setWithObjects:@"image/tiff", @"image/jpeg", @"image/gif", @"image/png", @"image/ico", @"image/x-icon", @"image/bmp", @"image/x-bmp", @"image/x-xbitmap", @"image/x-win-bitmap", nil];
 }
 
-+ (BOOL)canProcessRequest:(NSURLRequest *)request {
-    static NSSet * _acceptablePathExtension = nil;
++ (BOOL)canProcessRequest:(NSURLRequest *)request
+{
+    static NSSet *_acceptablePathExtension = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         _acceptablePathExtension = [[NSSet alloc] initWithObjects:@"tif", @"tiff", @"jpg", @"jpeg", @"gif", @"png", @"ico", @"bmp", @"cur", nil];
     });
 
@@ -290,16 +337,24 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 #pragma clang diagnostic ignored "-Wgnu"
 
-    self.completionBlock = ^ {
-        dispatch_async(image_request_operation_processing_queue(), ^(void) {
-            if (self.error) {
-                if (failure) {
-                    dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
+    self.completionBlock = ^
+    {
+        dispatch_async(image_request_operation_processing_queue(), ^(void)
+        {
+            if (self.error)
+            {
+                if (failure)
+                {
+                    dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^
+                    {
                         failure(self, self.error);
                     });
                 }
-            } else {
-                if (success) {
+            }
+            else
+            {
+                if (success)
+                {
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
                     UIImage *image = nil;
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
@@ -308,7 +363,8 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
                     image = self.responseImage;
 
-                    dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^{
+                    dispatch_async(self.successCallbackQueue ?: dispatch_get_main_queue(), ^
+                    {
                         success(self, image);
                     });
                 }

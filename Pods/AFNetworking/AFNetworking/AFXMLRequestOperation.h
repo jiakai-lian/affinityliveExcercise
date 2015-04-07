@@ -48,7 +48,7 @@
 /**
  An `NSXMLParser` object constructed from the response data.
  */
-@property (readonly, nonatomic, strong) NSXMLParser *responseXMLParser;
+@property(readonly, nonatomic, strong) NSXMLParser *responseXMLParser;
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 /**
@@ -67,8 +67,8 @@
  @return A new XML request operation
  */
 + (instancetype)XMLParserRequestOperationWithRequest:(NSURLRequest *)urlRequest
-											 success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser))success
-											 failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser))failure;
+                                             success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser))success
+                                             failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser))failure;
 
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
